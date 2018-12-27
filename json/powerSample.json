@@ -1,0 +1,70 @@
+{
+  "tower":[
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 100,
+      "lat1" : 50,
+      "lng2" : 110,
+      "lat2" : 30,
+      "confidence" : "70%"
+    },
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 120,
+      "lat1" : 50,
+      "lng2" : 130,
+      "lat2" : 30,
+      "confidence" : "85%"
+    }
+  ],
+  "hydropower":[
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 140,
+      "lat1" : 50,
+      "lng2" : 150,
+      "lat2" : 30,
+      "confidence" : "65%"
+    }
+  ],
+  "thermalpower":[
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 90,
+      "lat1" : 50,
+      "lng2" : 100,
+      "lat2" : 30,
+      "confidence" : "65%"
+    }
+  ],
+  "solarpower":[
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 140,
+      "lat1" : 30,
+      "lng2" : 150,
+      "lat2" : 10,
+      "confidence" : "65%"
+    }
+  ],
+  "transformer":[
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 140,
+      "lat1" : 40,
+      "lng2" : 150,
+      "lat2" : 20,
+      "confidence" : "65%"
+    }
+  ],
+  "windpower":[
+    {
+      "img_id" : "I50G077043_12_rotated_0.jpg",
+      "lng1" : 140,
+      "lat1" : 60,
+      "lng2" : 150,
+      "lat2" : 40,
+      "confidence" : "65%"
+    }
+  ]
+}

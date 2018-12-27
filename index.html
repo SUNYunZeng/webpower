@@ -1,0 +1,1258 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <title>电力能源互联网</title>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <!-- Tell IE to use the latest, best version. -->
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <meta name="description" content="Create 3D models using glTF.">
+  <meta name="cesium-sandcastle-labels" content="Tutorials,Showcases">
+  <link rel='stylesheet' href='js/Cesium/Widgets/widgets.css' />
+  <link rel='stylesheet' href='css/style.css' />
+  <link rel="stylesheet" href="css/index.css"/>
+  <link rel="stylesheet" href="css/topMenu.css"/>
+  <link rel="stylesheet" href="css/DrawHelper.css">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <style type="text/css">
+    html, body{
+      width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      min-height: 700px;min-width: 800px;
+    }
+  </style>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/moveDiv.js"></script>
+  <script src="js/echarts.js"></script>
+  <script src="js/showpng.js"></script>
+</head>
+<body>
+
+
+
+<div id="windows">
+  <div id="topMenuBox" >
+    <div id="queryBox">
+      <input id="queryTxt" type="text" onfocus="this.value=''"  list="url_list"  placeholder="搜索电力设施" data-options="required:true" >
+      <input id="queryBtn" type="image" src="img/search.png" >
+    </div>
+    <div id="queryConfigBox" >
+      <input id="queryConfig" title="搜索范围设置" class="hoverInput" type="image" src="img/searchConfig.png" >
+    </div>
+    <datalist id="url_list">
+      <option  value="输电塔" ></option>
+      <option  value="变电站" ></option>
+      <option  value="火力发电站" ></option>
+      <option  value="水力发电站" ></option>
+      <option  value="风力发电站" ></option>
+      <option  value="光伏发电站" ></option>
+    </datalist>
+    <div id="selwin" ></div>
+    <!-- 顶部菜单栏-->
+    <div id="topMenu" class="container">
+      <nav class="nav nav3">
+        <ul id="topmenu1">
+          <!-- <li>
+               <a href="#">统计区域选择</a>
+               <ul>
+                   <li><a href="#">当前屏幕</a></li>
+                   <li><a href="#">框选</a></li>
+                   <li><a href="#">多边形选择</a></li>
+               </ul>
+          </li>
+          <li id="fangqixuanqu">
+            <a href="#" onclick="var a = back();
+                          viewer.entities.remove(a[4])">放弃选区</a>
+          </li>-->
+          <li>
+            <a href="#" onclick="viewer.camera.flyTo({
+                        //destination: Cesium.Cartesian3.fromDegrees(configJson.longitude, configJson.lautitude, configJson.elevation),
+                        destination: Cesium.Cartesian3.fromDegrees(111.07, 39.05, 10000000),
+                        orientation: {
+                        heading : Cesium.Math.toRadians(0),
+                        pitch : Cesium.Math.toRadians(-90),
+                        roll : Cesium.Math.toRadians(0)
+                        }
+                    });">初始视角</a>
+          </li>
+          <li>
+            <a id="cesiumClear" href="#" onclick="">图层清空</a>
+          </li>
+          <li>
+            <a href="#" onclick="
+                    Cesium.Fullscreen.requestFullscreen(document.body)
+                   ">全屏显示</a>
+          </li>
+          <li>
+            <a href="#" id="exampleChoice">示范区选择</a>
+            <ul>
+              <li><a href="#" id="global" style="font-size:13.3px">全球示范区</a></li>
+              <li><a href="#" id= "china" style="font-size:13.3px">中国及周边</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div id="queryArea">
+    <div id="containQueryBox" >
+      <table  class="eletable" style="top: 10px;left: 10px">
+        <tr>
+          <td >
+            <input name="sameRad" style="vertical-align:middle;" type="radio" id="rectArea"  />
+            <label for="rectArea" style="color: white;border-radius: 2px" >使用框选范围</label>
+          </td>
+        </tr>
+        <tr>
+          <td >
+            <input style="vertical-align:middle;" type="radio" id="rectSelfArea" name="sameRad" />
+            <label for="rectSelfArea" style="color: white;border-radius: 2px" >自定义范围</label>
+          </td>
+        </tr>
+      </table>
+      <div id ='text1'>
+        左上角:
+        <input id="lng1" name="loc" style="width: 60px;" type="text" onfocus="this.value=''"   disabled="disabled" placeholder="经度" >
+        ,
+        <input id="lat1" name="loc"  style="width: 60px" type="text" onfocus="this.value=''"   disabled="disabled" placeholder="纬度"  >
+      </div>
+      <div id ='text2'   style="font-size:10px;left: 24px;color:white;position: absolute;top: 70px">
+        右下角:
+        <input id="lng2" name="loc"  style="width: 60px;" type="text" onfocus="this.value=''"  disabled="disabled"  placeholder="经度" data-options="required:true" >
+        ,
+        <input id="lat2" name="loc"  style="width: 60px" type="text" onfocus="this.value=''"  disabled="disabled"  placeholder="纬度" data-options="required:true" >
+      </div>
+    </div>
+
+    <div id="querySure">
+      <button id="querySureBtn"  class="cesium-button eleimg" >确定</button>
+    </div>
+    <div id="queryDelay">
+      <button id="queryDelayBtn" style="background-color: rgba(255,0,25,0.5)" class="cesium-button eleimg" >取消</button>
+    </div>
+  </div>
+
+  <div id="cesiumContainer">
+  </div>
+
+
+
+
+  <div id="leftMenu">
+    <div id="eleFacBox"  class="eleBox" title="电力设施">
+      <input id="elefac" class="eleimg" name="button" type="image" src="img/elefac.png">
+    </div>
+    <div id="eleLoadBox" class="eleBox" style="top: 80px;" title="电力负荷">
+      <input id="eleload" class="eleimg" type="image" src="img/eleload1.png">
+    </div>
+    <div id="eleGeoBox" class="eleBox" style="top:120px">
+      <input id="elegeo" class="eleimg" type="image" src="img/elegeo.png" title="土地覆盖">
+    </div>
+  </div>
+
+  <div id="rightMenu">
+    <div id="charts" class="eleBox" style="left:1px;" title="图表统计">
+      <input id="chartsBtn" class="eleimg" name="button" type="image" src="img/charts.png">
+    </div>
+    <div id="eleLoadBox1" class="eleBox" style="top: 80px;left: 1px" title="图表管理">
+      <input id="chartManBtn" class="eleimg" type="image" src="img/chartCon.png">
+    </div>
+  </div>
+
+  <div id="eleFacMenu" class="eleMenu" style="height:300px">
+    <div class="leftTitle">电力设施</div>
+    <div class="leftback" title="关闭">
+      <input id="leftbackBtn" name="button" type="image" src="img/layer.png" class="eleimg">
+    </div>
+    <div id="elekind">
+      <h4 class="lititle" align=center>电力设施类型</h4>
+      <table  class="eletable">
+        <tr>
+          <td >
+            <input style="vertical-align:middle;" type="checkbox" id="powerSattionTypeAll" name="powerTypeLay" />
+            <label for="powerSattionTypeAll" style="font-size: 13.5px;background-color: #000000;border-radius: 2px" >全选</label>
+          </td>
+        </tr>
+        <tr>
+          <td  onmouseout="hiddenPic()" onmousemove="showPic(event,'img/he.jpg')">
+            <div style="width: 10px;height: 10px;border-radius:7px;position: absolute;vertical-align: bottom;background: #FFFF00;left: 58px"></div>
+            <input type="checkbox" name="powerTypeLay" id="nuclearPowerStation"  />
+            <label for="nuclearPowerStation">核电站</label>
+          </td>
+          <td onmouseout="hiddenPic()" onmousemove="showPic(event,'img/huo.jpg')">
+            <div style="width: 10px;height: 10px;border-radius:7px;position: absolute;vertical-align: bottom;background: 	#FF0000;left: 201px"></div>
+            <input type="checkbox" name="powerTypeLay" id="thermalPowerStation" />
+            <label for="thermalPowerStation">火力发电站</label>
+          </td>
+        </tr>
+        <tr>
+          <td onmouseout="hiddenPic()" onmousemove="showPic(event,'img/shui.jpg')">
+            <div style="width: 10px;height: 10px;border-radius:7px;position: absolute;vertical-align: bottom;background: 	#0000FF;left: 81px"></div>
+            <input type="checkbox" name="powerTypeLay" id="hydraulicPowerStation" />
+            <label for="hydraulicPowerStation">水力发电机</label>
+          </td>
+          <td onmouseout="hiddenPic()" onmousemove="showPic(event,'img/guang.jpg')">
+            <div style="width: 10px;height: 10px;border-radius:7px;position: absolute;vertical-align: bottom;background: 	#FFFFFF;left: 201px"></div>
+            <input type="checkbox" name="powerTypeLay" id="photovoltaicPowerStation" />
+            <label for="photovoltaicPowerStation">光伏发电站</label>
+          </td>
+
+        </tr>
+        <tr>
+          <td onmouseout="hiddenPic()" onmousemove="showPic(event,'img/feng.jpg')">
+            <div style="width: 10px;height: 10px;border-radius:7px;position: absolute;vertical-align: bottom;background: 	#00FF00;left: 81px"></div>
+            <input type="checkbox" name="powerTypeLay" id="windPowerStation"  />
+            <label for="windPowerStation">风力发电站</label>
+          </td>
+          <td onmouseout="hiddenPic()" onmousemove="showPic(event,'img/bian.jpg')">
+            <div style="width: 10px;height: 10px;border-radius:7px;position: absolute;vertical-align: bottom;background: #FF00FF;left: 201px"></div>
+            <input type="checkbox" name="powerTypeLay" id="largesubstation" />
+            <label for="largesubstation">大型变电站</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id="eleshow">
+      <h4 class="lititle" align=center>目标显示形式</h4>
+      <table  class="eletable" style="top:-20px;width: 240px" >
+        <tr>
+          <td >
+            <input type="radio" name="eleTypeP2D"  id="eleTypePoint" checked/>
+            <label for="eleTypePoint">点</label>
+          </td>
+          <td>
+          </td>
+          <td style="position:absolute;float: right;right: 50px">
+            <input type="radio" name="eleTypeP2D"  id="eleType3DModel" />
+            <label for="eleType3DModel">三维模型</label>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+
+  </div>
+  <div id="showResult">
+    <div id="eleshowimg" >
+      <h4 class="lititle" align=center>输出影像选择</h4>
+      <div id="allimg" style="position:absolute;top:20px;left:2px;height:20px;width:110px;background-color:rgba(155,155,155,0.8);color:#ffffff;font-size:12px;border-radius:5px;text-align:center">
+        <a id="btlogin1" href="#" style="color:#ffffff;text-decoration:none;position:relative;top:1px;">所有影像列表</a>
+      </div>
+      <div id="allimg2" style="position:absolute;top:20px;left:115px;height:20px;width:110px;background-color:rgba(155,155,155,0.8);color:#ffffff;font-size:12px;border-radius:5px;text-align:center">
+        <a id="btlogin2" href="#" style="color:#ffffff;text-decoration:none;position:relative;top:1px;">当前影像列表</a>
+      </div>
+      <!--搜索图片弹窗
+      <table style="color:#ffffff;position:absolute;left:0; border:none;text-align:center;width:350px;">
+
+        <tr bgcolor=rgba(100,100,100)>
+          <td>
+
+          </td>
+          <td>
+            影像ID
+          </td>
+          <td>
+            文件名称
+          </td>
+          <td>
+            摄影日期
+          </td>
+          <td>
+            影像类型
+          </td>
+          <td>
+            传感器
+          </td>
+          <td>
+            备注
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow12" />
+          </td>
+          <td>
+            _000
+          </td>
+          <td>
+            whu_000
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow13" />
+          </td>
+          <td>
+            _001
+          </td>
+          <td>
+            whu_001
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow14" />
+          </td>
+          <td>
+            _002
+          </td>
+          <td>
+            whu_002
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow15" />
+          </td>
+          <td>
+            _003
+          </td>
+          <td>
+            whu_003
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow16" />
+          </td>
+          <td>
+            _004
+          </td>
+          <td>
+            whu_004
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow71" />
+          </td>
+          <td>
+            _005
+          </td>
+          <td>
+            whu_005
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow18" />
+          </td>
+          <td>
+            _006
+          </td>
+          <td>
+            whu_006
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow10" />
+          </td>
+          <td>
+            _007
+          </td>
+          <td>
+            whu_007
+          </td>
+          <td>
+            20140203
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow111" />
+          </td>
+          <td>
+            <label for="isshow1">_010</label>
+          </td>
+          <td>
+            whu_010
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow123" />
+          </td>
+          <td>
+            _011
+          </td>
+          <td>
+            whu_011
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow102" />
+          </td>
+          <td>
+            _012
+          </td>
+          <td>
+            whu_012
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow103" />
+          </td>
+          <td>
+            _013
+          </td>
+          <td>
+            whu_013
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow104" />
+          </td>
+          <td>
+            _014
+          </td>
+          <td>
+            whu_014
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow104" />
+          </td>
+          <td>
+            _015
+          </td>
+          <td>
+            whu_015
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow156" />
+          </td>
+          <td>
+            _016
+          </td>
+          <td>
+            whu_016
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="" value="1" id="isshow831" />
+          </td>
+          <td>
+            _017
+          </td>
+          <td>
+            whu_017
+          </td>
+          <td>
+            20140406
+          </td>
+          <td>
+            全色
+          </td>
+          <td>
+            OLI
+          </td>
+          <td>
+            1区
+          </td>
+        </tr>
+      </table>
+      -->
+      <div id="checkshow" style="position:relative;left:223px;top:-30px;color:#ffffff;font-size:12px">
+        <input type="checkbox" name="" value="1" id="isshowall" /><label for="isshowall">全部显示</label>
+      </div>
+    </div>
+  </div>
+  <div id="eleLoadMenu" style="height:170px;" class="eleMenu">
+    <div class="leftTitle">电力负荷</div>
+    <div class="leftback" title="关闭">
+      <input id="leftbackBtn1" name="button" type="image" src="img/layer.png" class="eleimg">
+    </div>
+    <div id="eleloadkind">
+      <h4 class="lititle" align=center>电力负荷图</h4>
+      <table  class="eletable">
+        <tr>
+          <td>
+            <input type="checkbox" name="energyEatone" value="1" id="energyEatMap" />
+            <label for="energyEatMap">电力消耗专题图</label>
+          </td>
+          <td>
+            <input type="checkbox" name="nightRGBone" value="1" id="nightRGB"  />
+            <label for="nightRGB">夜光电力彩色图</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="night_powerone" value="1" id="night_power" />
+            <label for="night_power">夜光电力灰度图</label>
+          </td>
+          <td>
+            <input type="checkbox" name="" value="1" id="c254" />
+            <label for="c254">其它电力专题图</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--
+    <div id="elecondition0" >
+      <h4 class="lititle" align=center>负荷等级选择</h4>
+      <table  class="eletable" style="top: -30px">
+        <tr>
+          <td>
+            <input type="checkbox"  name="" value="1" id="c10" />
+            <label for="c10">一级负荷</label>
+          </td>
+          <td>
+            <input type="checkbox" name="" value="1" id="c20" />
+            <label for="c20">二级负荷</label>
+          </td>
+          <td>
+            <input type="checkbox" name="" value="1" id="c21" />
+            <label for="c21">三级负荷</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+    -->
+
+  </div>
+  <div id="eleGeoMenu" class="eleMenu" style="height:190px;">
+    <div class="leftTitle">土地覆盖</div>
+    <div class="leftback" title="关闭">
+      <input id="leftbackBtn2" name="button" type="image" src="img/layer.png" class="eleimg">
+    </div>
+    <div id="elegeoshow">
+      <h4 class="lititle" align=center>土地覆盖分布</h4>
+      <table  class="eletable">
+        <tr>
+          <td>
+            <input type="checkbox" name="mineralone" id="MineralslLayer" />
+            <label for="MineralslLayer">矿产</label>
+          </td>
+          <td>
+            <input type="checkbox" name="tdtTerBasicLayerone" value="1" id="tdtTerBasicLayer" />
+            <label for="tdtTerBasicLayer">地形</label>
+          </td>
+          <td>
+            <input type="checkbox" name="plantone" value="1" id="plant" />
+            <label for="plant">植被</label>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table >
+      <table class="eletable">
+        <!--
+        <tr>
+          <td>
+            <input type="checkbox"  name="landuseone" value="1" id="landuse"  />
+            <label for="landuse">影像图</label>
+          </td>
+        </tr>-->
+        <tr>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #FF00FF;left: 58px"></div>
+            <input type="checkbox"  name="landuseone" value="1" id="sence_residential"  />
+            <label for="sence_residential">住宅区</label>
+          </td>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #0000FF;left: 137px"></div>
+            <input type="checkbox" name="" value="1" id="sence_water" />
+            <label for="sence_water">水区</label>
+          </td>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #000000;left: 216px"></div>
+            <input type="checkbox" name="" value="1" id="sence_mining" />
+            <label for="sence_mining">矿区</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #66A61E;left: 58px"></div>
+            <input type="checkbox" name="" value="1" id="sence_farmland" />
+            <label for="sence_farmland">农业区</label>
+          </td>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #7570B3;left:137px"></div>
+            <input type="checkbox"  name="" value="1" id="sence_industrial"  />
+            <label for="sence_industrial">工业区</label>
+          </td>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #00FF00;left: 216px"></div>
+            <input type="checkbox" name="" value="1" id="sence_forest"  />
+            <label for="sence_forest">林业区</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #EE9A00;left: 58px"></div>
+            <input type="checkbox" name="" value="1" id="sence_f1" />
+            <label for="sence_f1">待定区</label>
+          </td>
+          <td>
+            <div style="width: 20px;height: 15px;position: absolute;background: #EE30A7;left:137px"></div>
+            <input type="checkbox"  name="" value="1" id="sence_i2"  />
+            <label for="sence_i2">待定区</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--
+    <div id="eledifkind">
+      <h4 class="lititle" align=center>异常地质类型</h4>
+      <table  class="eletable">
+        <!--
+        <tr>
+          <td>
+            <input type="checkbox" id="strangeGeoType" />
+            <label  for="strangeGeoType" style="font-size: 13.5px;background-color: #000000;border-radius: 2px" >全选</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="humanGeoType" id="mining"/>
+            <label for="mining">矿区</label>
+          </td>
+          <td>
+            <input type="checkbox" name="humanGeoType" id="c22" />
+            <label for="c22">冰雪区域</label>
+          </td>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="humanGeoType" id="water"/>
+            <label for="water">水区</label>
+          </td>
+          <td>
+            <input type="checkbox" name="humanGeoType" id="c44"/>
+            <label for="c44">盆地山区</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="humanGeoType" id="c55" />
+            <label for="c55">其它异常地质</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+      -->
+
+  </div>
+
+  <div id="chartsMenu">
+
+  <div id="RightTitle">图表统计</div>
+  <div  id="rightback" class="rightback" title="关闭">
+    <input  id="rightbackBtn" class="rightbackBtn" type="image"  src="img/layer.png">
+  </div>
+
+  <div id="selectRange" class="selectRange" >
+    <h4 class="lititle" align=center>统计范围选择</h4>
+    <div class="sel" >
+      <input  style="position: relative;width: 78px;height: 78px" id="selallBtn" type="image" src="img/selall.png">
+    </div>
+    <div id="rectBox"></div>
+    <div id="polygonBox"></div>
+  </div>
+
+
+  <div id="countBtnBox">
+    <button id="countBtn" class="cesium-button eleimg">统计</button>
+  </div>
+</div>
+
+
+  <div id="chartManager">
+
+    <div id="RightTwoTitle">图表管理</div>
+    <div  id="righttwoBtn"  class="rightback" title="关闭">
+      <input  id="righttwoback" class="rightbackBtn" type="image"  src="img/layer.png">
+    </div>
+
+    <div id="selecttwoRange" style="height: 125px" class="selectRange"  >
+      <table  class="eletable" style="color:white;font-weight: 800;left:15px;top:20px">
+        <tr>
+          <td >
+            <input type="checkbox" id="chart1" />
+            <label for="chart1">电力设施统计</label>
+          </td>
+          <td>
+            <input type="checkbox"   id="chart25" />
+            <label for="chart25">区域电力消费</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="chart3" name="oneChartBox"/>
+            <label for="chart3">电力生产统计</label>
+          </td>
+          <td>
+            <input type="radio" id="chart4" name="oneChartBox" />
+            <label for="chart4">能源弹性系数</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart5" />
+            <label for="chart5">日均能源消耗</label>
+          </td>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart6" />
+            <label for="chart6">人均生活能源消耗</label>
+          </td>
+        </tr>
+        <tr>
+
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart7" />
+            <label for="chart7">各省份发电量</label>
+          </td>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart8" />
+            <label for="chart8">分行业电力消耗</label>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+    <div id="chartclear" style="width:80px;height:30px;position: absolute;top:184px;left: 100px" >
+      <button id="countBtn1" style="background-color: rgba(255,0,25,0.5)" class="cesium-button eleimg" >清空</button>
+    </div>
+
+  </div>
+
+  <!--<div id="chartsMenu">
+
+    <div id="RightTitle">图表统计</div>
+    <div  id="rightback" title="关闭">
+      <input  id="rightbackBtn" type="image"  src="img/layer.png">
+    </div>
+    <div id="chartConBox" title="图表控制">
+      <div id="before"></div>
+      <input id="chartConBtn" type="image" src="img/chartsmenu.png">
+    </div>
+    <div id="selectRange" >
+      <h4 class="lititle" align=center>统计范围选择</h4>
+      <div class="sel" >
+        <input class="selbtn" id="selallBtn" type="image" src="img/selall.png">
+      </div>
+      <div id="rectBox"></div>
+      <div id="polygonBox"></div>
+    </div>
+    <div id="chartskind">
+      <h4 class="lititle" align=center>统计类别</h4>
+      <div style="position: absolute;width: 260px;left: 10px;height: 20px;top:20px;">
+        <h5 class="lititle" >
+          <input type="checkbox" id="eleFacCharts"/>
+          <label for="eleFacCharts">电力设施</label></h5>
+        <table  class="eletable">
+          <tr>
+            <td >
+              <input type="checkbox" id="nuclearPowerStaCharts" checked />
+              <label for="nuclearPowerStaCharts">核电站</label>
+            </td>
+            <td>
+              <input type="checkbox" id="thermalPowerStaCharts" checked />
+              <label for="thermalPowerStaCharts">火力发电站</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="hydraulicPowerStaCharts" checked />
+              <label for="hydraulicPowerStaCharts">水力发电机</label>
+            </td>
+            <td>
+              <input type="checkbox" id="photovoltaicPowerStaCharts" checked />
+              <label for="photovoltaicPowerStaCharts">光伏发电站</label>
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" id="windPowerStaCharts" checked />
+              <label for="windPowerStaCharts">风力发电站</label>
+            </td>
+            <td>
+              <input type="checkbox" name="" id="c422" />
+              <label for="c422">大型变电站</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" value="1" id="c35" />
+              <label for="c35">大型输电杆</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="position: absolute;width: 260px;left: 10px;height: 20px;top:125px">
+        <h5 class="lititle">
+          <input type="checkbox" name="" value="1" id="c81" />
+          <label for="c81">土地利用类型</label>
+          </h5>
+        <table  class="eletable">
+          <tr>
+            <td >
+              <input type="checkbox" name="" id="c8" checked />
+              <label for="c8">商业区</label>
+            </td>
+            <td>
+              <input type="checkbox" name="" id="c6" checked />
+              <label for="c6">工业区</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="c91" checked />
+              <label for="c91">农业区</label>
+            </td>
+            <td>
+              <input type="checkbox" name="" id="c92" checked />
+              <label for="c92">居民区</label>
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="" id="c93" checked />
+              <label for="c93">林业区</label>
+            </td>
+            <td>
+              <input type="checkbox" name="" id="c94" />
+              <label for="c94">其它</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div style="position: absolute;width: 260px;left: 10px;height: 20px;top:210px">
+        <h5 class="lititle">
+          <input type="checkbox" name="" value="1" id="eleloadChart" />
+          <label for="eleloadChart">电力负荷</label>
+        </h5>
+        <table  class="eletable">
+          <tr>
+            <td >
+              <input type="checkbox" name="" id="localPower" checked />
+              <label for="localPower">电力消费值</label>
+            </td>
+            <td>
+              <input type="checkbox" name="" id="areaEle" checked />
+              <label for="areaEle">区域电力消费</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="powercharts">
+      <h4 class="lititle" align=center>国家能源数据</h4>
+      <table  class="eletable" style="width: 280px; left:1px;top: -15px">
+        <tr>
+          <td>
+            <input type="radio" name="weareSame" id="powerMade" />
+            <label for="powerMade">电力生产</label>
+          </td>
+          <td>
+            <input type="radio" name="weareSame" id="ECofPower"/>
+            <label for="ECofPower">能源弹性系数</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="weareSame" id="dayofPower" />
+            <label for="dayofPower">平均每天能源消耗量</label>
+          </td>
+          <td>
+            <input type="radio" name="weareSame" id="perPower" />
+            <label for="perPower">人均生活能源消耗量</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio"  name="weareSame" id="provinceOfPower" />
+            <label for="provinceOfPower">各省份发电量</label>
+          </td>
+          <td>
+            <input type="radio" name="weareSame"  id="powerCount"/>
+            <label for="powerCount">分行业电力消费量</label>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="countBtnBox">
+      <button id="countBtn" class="cesium-button eleimg">统计</button>
+    </div>
+  </div>
+  <div id="chartConMenu" style="top: 73px;
+    left: 985px;" onmousedown="mouseDown(this,event)"
+       onmousemove="mouseMove(this,event)" onmouseup="mouseUp(this,event)">
+    <div id="inChartConMenu">
+      <div id="inChartConBtnBox" title="关闭">
+        <input id="inChartConBtn" type="image" src="img/closeblack.png">
+      </div>
+      <h4 class="lititle" align=center style="color: black">图表管理</h4>
+      <table  class="eletable" style="color:white;font-weight: 800;left: 2px">
+        <tr>
+          <td >
+            <input type="checkbox" id="chart1" />
+            <label for="chart1">电力设施统计表</label>
+          </td>
+        </tr>
+        <tr>
+        <td>
+          <input type="checkbox"   id="chart2" />
+          <label for="chart2">土地利用类型</label>
+        </td>
+      </tr>
+        <tr>
+          <td>
+            <input type="checkbox"   id="chart25" />
+            <label for="chart25">区域电力消费值</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="chart3" name="oneChartBox"/>
+            <label for="chart3">电力生产统计表</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="chart4" name="oneChartBox" />
+            <label for="chart4">能源弹性系数统计</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart5" />
+            <label for="chart5">平均每天能源消耗量</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart6" />
+            <label for="chart6">人均生活能源消耗量</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart7" />
+            <label for="chart7">各省发电量</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="oneChartBox" value="1" id="chart8" />
+            <label for="chart8">分行业电力消耗总量</label>
+          </td>
+        </tr>
+      </table>
+      <div id="chartclear" style="position: absolute;top:210px;left: 55px" >
+        <button id="countBtn1">清空</button>
+      </div>
+    </div>
+  </div>-->
+
+  <div id="PieChart" style="position: absolute;z-index: 80;width: 380px;display: none;
+        height: 400px;top: 70px;left: 370px;" onmousedown="mouseDown(this,event)"
+       onmousemove="mouseMove(this,event)" onmouseup="mouseUp(this,event)">
+  </div>
+  <div id="BarChart" style="position: absolute;z-index: 81;width: 800px;
+        height:500px;bottom:40px;left: 345px;display: none" onmousedown="mouseDown(this,event)"
+       onmousemove="mouseMove(this,event)" onmouseup="mouseUp(this,event)">
+  </div>
+
+  <div id="areaElePieChart" style="position: absolute;z-index: 91;width: 830px;
+        height:300px;bottom:30px;left: 355px;display: none;">
+  </div>
+<!--
+  <div id="areaElePieChart" style="position: absolute;z-index: 81;width: 550px;
+        height:400px;top:320px;left: 600px;display: none" onmousedown="mouseDown(this,event)"
+       onmousemove="mouseMove(this,event)" onmouseup="mouseUp(this,event)">
+  </div>-->
+
+  <div id="cengControll" align="center" title="图层管理">
+    <input id="tuBtn" style="width: 60px;height: 60px;position: relative;"
+           type="image" src="img/tuceng.png">
+  </div>
+  <div id="controllBox"  style=" position: absolute;width: 257px;height: auto;max-height: 605px;
+    z-index: 999;top:100px;left: 65px;" >
+    <div class="leftTitle" style="font-size: 1.4em;position: absolute">图层管理</div>
+    <div class="leftback" style="top: 4px;left:225px;position: absolute">
+      <input id="leftbackBtn3" name="button" type="image" src="img/layer.png"  class="eleimg">
+    </div>
+    <h4 id="set1" style="font-size: 1.14em;top: 15px" class="lititle" align=center>专题图</h4>
+    <ul id="elecondition2" class="elecondition" style="top:0;height: auto; max-height:180px;padding-top: 0;width: 205px;">
+
+    </ul>
+    <ul id="elecondition1" class="elecondition" style="top:-15px; height: 165px;padding-top: 0;width: 205px;">
+    </ul>
+    <div style=" position: relative;width: inherit;height: 10px;top:15px "><h4 id="set" style=" top: -45px; font-size: 1.14em" class="lititle" align=center>底图</h4></div>
+    <ul id="elecondition3"  class="elecondition" style="top:-34px; height: 160px;padding-top: 0;width: 205px;">
+    </ul>
+
+  </div>
+
+  <div id="powerShowWin" style="position: absolute; z-index: 100;width: 253px;height: 470px;overflow-y: auto;
+    background-color: rgba(60,60,60,0.8);box-shadow: 0 3px 3px rgba(0,0,0,0.9);text-align: center;top: 160px;
+    left: 860px;border-radius: 12px;display: none;
+  "  onmousedown="mouseDown(this,event)" onmousemove="mouseMove(this,event)" onmouseup="mouseUp(this,event)">
+  <div id="closeShowWin" style="position: absolute;width: 15px;height: 15px;top:8px;right: 8px" title="关闭">
+    <input id="" style="width: inherit;height: inherit" type="image" src="img/ponsume.png">
+  </div>
+  <h4  style="color:#ffffff;top: 0;" align=center>电力消费统计情况</h4>
+  <table style="left: 2px;top:50px;position: absolute">
+    <tr><th style="color:#ffffff;">范围耗电:</th><td align="center" ><input id="powerConsumeInput"  style="border: 1px solid #ffffff;color:#ffffff;background-color: rgba(60,60,60,0.6)" value='12031566116/万千瓦时'></td></tr>
+    <tr><th style="color:#ffffff;">所选面积:</th><td><input id="areaInput" style="border: 1px solid #ffffff;color:#ffffff;background-color: rgba(60,60,60,0.6)" value='/万平方公里'></td></tr>
+    <tr><th style="color:#ffffff;">单位耗电:</th><td><input id="powerArea" style="border: 1px solid #ffffff;color:#ffffff;background-color: rgba(60,60,60,0.6)" value='2165111/千瓦时每平方公里'></td></tr>
+  </table>
+    <div id="powerShowChart" style="height: 170px;width: 240px;position: absolute;top: 123px;left:5px;border: solid #ffffff 1px;box-shadow: 0 0 10px grey;"></div>
+    <div id="powerShowChart1" style="height: 170px;width: 240px;position: absolute;top: 293px;left:5px;border: solid #ffffff 1px;box-shadow: 0 0 10px grey;"></div>
+</div>
+
+  <div id="bottomMenu">
+    <div id="latlng_show" style="width: 600px;height: 25px;position: absolute;
+     bottom: 0; right: 80px;z-index:100; ">
+      <div style="width: 200px;height: 25px;float: right;">
+        <span  style="font-size: 12px; color: #edffff">纬度：<span id="latitude_show"></span>°</span>
+      </div>
+      <div style="width: 200px;height: 25px;float: right;">
+        <span  style="font-size: 12px; color: #edffff">经度：<span id="longitude_show"></span>°</span>
+      </div>
+      <div style="width: 200px;height: 25px;float: right;">
+        <span  style="font-size: 12px; color: #edffff">视角高度：<span id="altitude_show"></span>km</span>
+      </div>
+      <div id="tes" style="font-size: 12px; color: #edffff"></div>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div id="Layer1" style="display: none; position: absolute; z-index: 100;"></div>
+<div id="notPoint" style="display: none; position: absolute; z-index: 100;width: 253px;height: 160px;overflow-y: auto;
+    background-color: rgba(60,60,60,0.8);box-shadow: 0 3px 3px rgba(0,0,0,0.9);text-align: center;
+    border-radius: 12px;
+" >
+  <h4 id="upname" style="color:#ffffff;top: 0;" align=center></h4>
+    <table id="showTable" style="left: 5px;top:40px;position: absolute">
+      <tr><td>说明:...</td></tr>
+    </table>
+</div>
+<!-- Add your site or application content here -->
+
+</body>
+<script src="js/Cesium/Cesium.js"></script>
+<script src="js/globle.js"></script>
+<script src="js/dataShow.js"></script>
+<script src="js/rectangleT.js"></script>
+<script src="js/rectangleK.js"></script>
+<script src="js/polygonK.js"></script>
+<script src="js/inforwindows.js"></script>
+<script src="js/eleoc.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/layercon.js"></script>
+</html>

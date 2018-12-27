@@ -1,0 +1,782 @@
+#windows{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+#topMenuBox{
+    position: absolute;
+    width: 900px;
+    height: 37px;
+    background: rgba(60,60,60,0.8);
+    top:0;
+    right: 400px;
+    z-index: 100;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+#queryBox{
+    position:relative;
+    left: 20px;
+    width: 220px;
+    height: 30px;
+    background-color: #A5A5A5;
+    top:2.5px;
+}
+#queryTxt{
+    width: 190px;
+    height: 28px ;
+    outline:none;border:0;
+    font-size: 15px;
+    background-color: #A5A5A5;
+    border-radius:5px
+}
+#queryBtn{
+    z-index:inherit;
+    background-size:30px 30px;
+    position:absolute;
+    top:0;
+    right:0;
+    width:30px;
+    height:30px
+}
+#queryConfigBox{
+  z-index:inherit;
+  position:absolute;
+  top:0;
+  left: 242px;
+  width:36px;
+  height:100%;
+  border-right:1px solid grey;
+}
+#queryConfig{
+  z-index:inherit;
+  background-size:28px 28px;
+  position:absolute;
+  top:2.5px;
+  left: 2px;
+  width:30px;
+  height:30px;
+
+}
+#queryArea{
+  background: rgba(80,80,80,0.8);
+  z-index: 100;
+  width:13.8%;
+  height: 150px;
+  position: absolute;
+  right: 850px;
+  top: 38px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: none;
+}
+#containQueryBox{
+  box-shadow: 0 0 2px grey;
+  border-radius: 3px;
+  border: 1px solid white;
+  position: absolute;
+  width: 96%;
+  height: 100px;
+  top: 2px;
+  left: 2%
+}
+#text1{
+  font-size:10px;
+  left: 24px;
+  color:white;
+  position: absolute;
+  top: 50px;
+}
+#querySure{
+  width:60px;
+  height:25px;
+  position: absolute;
+  top:110px;
+  left: 35px;
+  font-size: 12px;
+}
+#queryDelay{
+  width:60px;
+  height:25px;
+  position: absolute;
+  top:110px;
+  right: 35px;
+  font-size: 12px;
+}
+
+#selwin{
+  position: absolute;
+  left: -25px;
+  top:1px;
+}
+
+
+#cesiumContainer{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%
+}
+#popup{
+    position:absolute;z-index:40;width: 70px;height: 50px;right: 5px;top:58px;
+    background: rgba(80,80,80,0.8); border-radius: 6px;
+}
+#popupBtn{
+    position: relative;top:20%;left:5px;color: rgba(80,80,80,0.8);text-align: match-parent;
+}
+.function{
+    position:absolute;
+    z-index:40;
+    width:70px;
+    height: 70%;
+    right: 5px;
+    top:110px;
+    bottom:10%;
+    background: rgba(60,60,60,0.8);
+    border-radius: 6px;
+}
+#clearScreen{
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    top: 40px;
+    left: 3px;
+}
+
+#pieChart{
+    position: absolute;
+    width: 60px;
+    height: 75px;
+    top: 80px;
+    right: 5px
+}
+#lineChart{
+    position: absolute;
+    width: 60px;
+    height: 75px;
+    top: 160px;
+    right: 5px;
+}
+#barChart{
+    position: absolute;
+    width: 60px;
+    height: 75px;
+    top: 240px;
+    right: 5px;
+}
+#scatterChart{
+    position: absolute;
+    width: 60px;
+    height: 75px;
+    top: 320px;
+    right: 5px;
+}
+.menu{
+    width: 60px;
+    height: 75px;
+    border: none;
+    opacity: 0.7;
+    border-radius: 5px;
+}
+.ChartMenu{
+    position: absolute;
+    z-index: 40;
+    border-radius: 7px;
+    right: 78px;
+    background: rgba(60,60,60,0.8);
+    width: 158px;
+    height: 70px;
+    padding: 2px;
+    top:190px;
+    display: none;
+}
+.cesium-viewer-fullscreenContainer /* 全屏按钮 */
+{ position: relative;
+    top: 10px;
+    left: 80%;
+}
+
+#rightMenu{
+  position:absolute;
+  z-index:40;
+  width:62px;
+  height: 280px;
+  right: 2px;
+  top:100px;
+  background: rgba(60,60,60,0.8);
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+
+#leftMenu{
+    position:absolute;
+    z-index:40;
+    width:62px;
+    height: 400px;
+    left: 2px;
+    top:100px;
+    background: rgba(60,60,60,0.8);
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+.eleMenu{
+    position: absolute;
+    z-index: 40;
+    left: 65px;
+    border-radius: 6px;
+    background-color: rgba(60,60,60,0.8);
+    top:100px;
+    height: 330px;
+    width: 277px;
+    display: none;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+#showResult{
+    position: absolute;
+    z-index: 40;
+    left: 85px;
+    border-radius: 6px;
+    background-color: rgba(60,60,60,0.8);
+    top:405px;
+    height: 220px;
+    width: 300px;
+    display: none;
+}
+.leftTitle{
+    color: #f5f5f5;
+    display: flex;
+    font-size: 20px;
+    position: relative;
+    width: 241px;
+    height: 30px;
+    left: 20px;
+    align-items: center;
+    justify-content: center;
+    top: 1px;
+    text-decoration:none;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 20px;
+}
+.leftback{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    left: 246px;
+    top: -30px;
+}
+
+.eleBox{
+    position: relative;
+    width: 60px;
+    height: 80px;
+    top:40px
+}
+.eleimg{
+    width: inherit;
+    height: inherit;
+}
+
+
+
+#elekind{
+    position: relative;
+    width: 257px;
+    height: 150px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-25px;
+    left: 6px;
+    box-shadow: 0 0 10px grey;
+}
+#eleshow{
+    position: relative;
+    width: 257px;
+    height: 70px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-23px;
+    left: 6px;
+   box-shadow: 0 0 10px grey;
+}
+#eleimg{
+    position: relative;
+    width: 280px;
+    height: 150px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-45px;
+    left: 6px;
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: rgba(55,55,55,0.6);
+}
+#addimgbox{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    left: 230px;
+    top:-15px;
+}
+#addimg{
+    width: inherit;
+    height: inherit;
+}
+
+#eleshowimg{
+    position: relative;
+    width: 280px;
+    height: 200px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:0;
+    left: 6px;
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: rgba(55,55,55,0.6);
+}
+.lititle{
+    color:#ffffff;
+    position:relative;
+    top:-15px;
+}
+.eletable{
+    color:#ffffff;
+    border:0;
+    width:240px;
+    left:20px;
+    float: left;
+    position:relative;
+    top:-30px;
+    font-size:12px
+}
+.eletable tr td input{
+  vertical-align:middle;
+}
+#eleBuildBtnBox{
+    position: relative;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    left: 110px;
+    top: -44px;
+}
+
+#eleloadkind{
+    position: relative;
+    width: 257px;
+    height: 100px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-25px;
+    left: 6px;
+  box-shadow: 0 0 10px grey;
+}
+#elecondition0{
+  position: relative;
+  width: 257px;
+  height: 100px;
+  border-radius: 10px;
+  border: #cccccc solid 2px;
+  top:-23px;
+  left: 6px;
+  box-shadow: 0 0 10px grey;
+}
+
+.elecondition{
+    position: relative;
+    width: 257px;
+    height: 100px;
+    border-radius: 3px;
+    border: #cccccc solid 1.7px;
+    top:-23px;
+    left: 3px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  box-shadow: 0 0 10px grey;
+}
+.box1{
+  width:18px;height:18px;right:24px;top:20px;position: absolute;
+  padding:0;border:0;
+}
+
+#elebuildkind{
+    position: relative;
+    width: 280px;
+    height: 150px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-21px;
+    left: 6px;
+}
+#eleLoadBtn{
+    position: relative;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    left: 100px;
+    top: -20px;
+}
+#eledifkind{
+    position: relative;
+    width: 257px;
+    height: 130px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-25px;
+    left: 6px;
+  box-shadow: 0 0 10px grey;
+}
+#elegeoshow{
+    position: relative;
+    width: 257px;
+    height: 120px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-23px;
+    left: 6px;
+  box-shadow: 0 0 10px grey;
+}
+#eleGeoBtn{
+    position: relative;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    left: 110px;
+    top: -22px;
+}
+
+
+#chartManager{
+    position: absolute;
+    z-index: 40;
+    float: right;
+    width: 277px;
+    height: 245px;
+    right: 67px;
+    top:100px;
+    background: rgba(60,60,60,0.8);
+    border-radius: 6px;
+    display : none;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+
+#chartsMenu{
+  position: absolute;
+  z-index: 40;
+  float: right;
+  width: 277px;
+  height: 245px;
+  right: 67px;
+  top:100px;
+  background: rgba(60,60,60,0.8);
+  border-radius: 6px;
+  display: none;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+
+#countBtnBox{
+    position: absolute;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    left: 100px;
+
+}
+#RightTitle{
+    color: #f5f5f5;
+    display: flex;
+    font-size: 20px;
+    position: relative;
+    width: 268px;
+    height: 30px;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    top: 1px;
+    text-decoration:none;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+#RightTwoTitle{
+  color: #f5f5f5;
+  display: flex;
+  font-size: 20px;
+  position: relative;
+  width: 268px;
+  height: 30px;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  top: 1px;
+  text-decoration:none;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+}
+
+.rightback{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    left: 245px;
+    top: -28px;
+}
+.rightbackBtn{
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+#chartConBox{
+
+    position: relative;
+    width: 30px;
+    height: 30px;
+    left: 2px;
+    top: -30px;
+}
+#before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index:999;
+    background:rgba(60,60,60,0.65);
+}
+#chartConBtn{
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+#chartConMenu{
+    position: absolute;
+    width: 160px;
+    height: 250px;
+    background: #A5A5A5;
+    border-radius: 5px;
+    z-index: 998;
+    opacity: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+}
+#inChartConMenu{
+    position: relative;
+    width: 150px;
+    left: 3px;
+    height: 240px;
+    top: 3px;
+    border-radius: 5px;
+    border: black solid 2px;
+}
+#inChartConBtnBox{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 3px;
+    right: 5px;
+    z-index: 98;
+}
+#inChartConBtn{
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+.selectRange{
+    position: relative;
+    width: 265px;
+    height: 115px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-25px;
+    left: 5px;
+  box-shadow: 0 0 10px grey;
+}
+.sel{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: -25px;
+    left: 3px;
+}
+.selbtn{
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+.sel:hover{
+    background:  #595959;
+}
+#cengControll{
+    position: absolute;
+    z-index: 40;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    background: rgba(60,60,60,0.8);
+    top: 504px;
+    left: 3px;
+   box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+.gunL{
+  position:absolute;width: 120px;height: 21px; left: 15px;top: 30px;
+}
+.up{
+  width:20px;height:20px;position: absolute;right: 45px;top:18px
+}
+.down{
+  width:20px;height:20px;position: absolute;right: 69px;top:18px
+}
+
+li {list-style-type:none;}
+li:hover{background:#888888 !important;}
+
+div[class="eleBox"]:hover{
+  background:#595959 !important;
+}
+input[class="hoverInput"]:hover{
+  background:#595959 !important;
+}
+
+.up :hover{
+  background:#696969 !important;
+}
+.up1:hover{
+  background:#696969 !important;
+}
+.down:hover{
+  background:#696969 !important;
+}
+.down1:hover{
+  background:#696969 !important;
+}
+.delete:hover{
+  background:#696969 !important;
+}
+.minChart:hover{
+  background:#696969 !important;
+}
+.box1:hover{
+  background:#696969 !important;
+}
+
+#cengControll:hover{
+  background:#595959 !important;
+}
+
+#chartskind{
+    position: relative;
+    width: 280px;
+    height: 270px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:-22px;
+    left: 10px;
+    overflow: auto;
+}
+#powercharts{
+    position: absolute;
+    width: 280px;
+    height: 150px;
+    border-radius: 10px;
+    border: #cccccc solid 2px;
+    top:435px;
+    left: 10px;
+}
+#controllBox{
+    background: rgba(60,60,60,0.8);
+    border-radius: 10px;
+    display: none;
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+}
+
+.firstCondition{
+  box-shadow: 0 0 10px grey;
+}
+
+#bottomMenu{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    bottom: 0;
+    background: rgba(30,30,30,0.8);
+    z-index: 100;
+}
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-corner{
+    border-radius: 10px;
+}
+::-webkit-scrollbar-button{
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(255,255,255,0.9);
+}
+
+.leaflet-popup {
+    position: absolute;
+    text-align: center;
+}
+
+.leaflet-popup-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 4px 4px 0 0;
+    text-align: center;
+    width: 18px;
+    height: 14px;
+    font: 16px/14px Tahoma, Verdana, sans-serif;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+}
+.leaflet-popup-content-wrapper {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: rgba(60,60,60,0.8);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.9);
+    padding: 1px;
+    text-align: center;
+    border-radius: 12px;
+}
+.leaflet-popup-content {
+    margin: 13px 19px;
+    line-height: 1.4;
+}
+.leaflet-popup-tip-container {
+    margin: 0 auto;
+    width: 20px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.leaflet-popup-tip {
+    background-color: rgba(60,60,60,0.8);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.9);
+    width: 17px;
+    height: 17px;
+    padding: 1px;
+    margin: -10px auto 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.trackPopUp{
+    display:none;
+}
+
+/*按钮样式*/
+.add-button{
+
+}
+
+

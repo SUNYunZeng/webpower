@@ -1,0 +1,122 @@
+
+html,
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+    line-height: 16px;
+}
+
+/* Text */
+
+a:link {
+    text-decoration: none;
+}
+
+body {
+    font-size: 0.875em;
+    line-height: 1em;
+}
+/* Block-level */
+
+/* Layout */
+html {
+    -webkit-text-size-adjust: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.ie7 img {
+    -ms-interpolation-mode: bicubic;
+}
+
+.container {
+    *zoom: 1;
+    position: absolute;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+    right: 50px;
+    top:0;
+}
+.container:before,
+.container:after {
+    content: "";
+    display: table;
+}
+.container:after {
+    clear: both;
+}
+
+
+
+/* All */
+.nav {
+    margin-bottom: 48px;
+
+}
+.nav ul {
+    *zoom: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(60,60,60,0.8);
+    float: right;
+}
+.nav ul:before,
+.nav ul:after {
+    content: "";
+    display: table;
+}
+.nav ul:after {
+    clear: both;
+}
+.nav ul > li {
+    float: left;
+    position: relative;
+}
+.nav a {
+    display: block;
+    padding: 10px 20px;
+    line-height: 1.2em;
+    color: #fff;
+    border-left: 1px solid #595959;
+}
+.nav a:hover {
+    text-decoration: none;
+    background: #595959;
+}
+.nav li ul {
+    background:rgba(60,60,60,0.8);
+}
+.nav li ul li {
+    width: 150px;
+}
+.nav li ul a {
+    border: none;
+}
+.nav li ul a:hover {
+    background: #595959;
+}
+
+
+/* Slide Down
+============================== */
+.nav3 ul > li:hover ul li {
+    height: 36px;
+}
+.nav3 li ul {
+    position: absolute;
+    left: 0;
+    top: 36px;
+    z-index: 100;
+}
+.nav3 li ul li {
+    overflow: hidden;
+    height: 0;
+    -webkit-transition: height 200ms ease-in;
+    -moz-transition: height 200ms ease-in;
+    -o-transition: height 200ms ease-in;
+    transition: height 200ms ease-in;
+}
+
+

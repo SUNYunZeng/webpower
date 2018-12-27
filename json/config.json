@@ -1,0 +1,590 @@
+{
+  "global" : {
+  "WMSURL" : "http://....",
+  "raw_data" : {
+    "LandUse_data" : {
+      "ID" : "1",
+      "remote_sensing_images" : [
+        {
+          "ID" : "2",
+          "name" : "img_8703",
+          "type" : "RS",
+          "GPStime":"1544,489261.040",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.24941902136916,
+            "Min_Y":32.37428603657222,
+            "Max_X":116.31327007206882,
+            "Max_Y":32.41758139331126
+          },
+          "layer" : "test:img8703",
+          "crs" : "EPSG:32650",
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms"
+        },
+        {
+          "ID" : "3",
+          "name" : "img_8704",
+          "type" : "RS",
+          "GPStime":"1544,489261.040",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.24941902136916,
+            "Min_Y":32.37428603657222,
+            "Max_X":116.31327007206882,
+            "Max_Y":32.41758139331126
+          },
+          "layer" : "test:img8704",
+          "crs" : "EPSG:4326",
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms"
+        }
+      ]
+    },
+    "ObjectIdentification_data" : {
+      "ID" : "03",
+      "data" : [
+        {
+          "ID" : "4",
+          "name" : "img_001",
+          "type" : "img",
+          "GPStime":"1544,489261.040",
+          "description" : "...",
+          "BBox":{
+            "Min_X":113.256,
+            "Min_Y":42.096,
+            "Max_X":113.376,
+            "Max_Y":42.106
+          },
+          "layer" : "test:img001",
+          "crs" : "EPSG:4326",
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms"
+        },{
+          "ID" : "4",
+          "name" : "img_002",
+          "type" : "img",
+          "GPStime":"1544,489261.040",
+          "description" : "...",
+          "BBox":{
+            "Min_X":113.256,
+            "Min_Y":42.096,
+            "Max_X":113.376,
+            "Max_Y":42.106
+          },
+          "layer" : "test:img002",
+          "crs" : "EPSG:4326",
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms"
+        }
+      ]
+    }
+  },
+  "data_production" : {
+    "ID" : "001",
+    "PowerConsumption_data" : {
+      "rawdata_source" : "light_RS",
+      "power_Consumpation":{
+          "ID" : "5",
+          "layer" : "power:CHN_GER5",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "WMSURL" : "http://localhost:8080/geoserver/power/wms?"
+        },
+      "power_RGB":{
+          "ID" : "6",
+          "layer" : "power:powerRGB",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "WMSURL" : "http://localhost:8080/geoserver/power/wms?"
+    },
+      "power_Province":{
+          "ID" : "7",
+          "layer" : "test:powerRGBprov",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms?",
+          "geoJsonURL":"http://localhost:8080/geoserver/power/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=power:point&maxFeatures=100000&outputFormat=application%2Fjson"
+        },
+      "powerAreaConsumpation_data":{
+          "ID" : "8",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "geoJsonURL" : "http://localhost:8080/geoserver/power/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=power:CHNGER_point&maxFeatures=100000&outputFormat=application%2Fjson"
+        }
+    },
+    "LandUse_data" : {
+      "ID" : "9",
+      "rawdata_source" : "RS",
+      "farmland" : {
+        "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+        "area" : 1200,
+        "data" : [{
+          "name" : "farmland_8703",
+          "layer" : "test:farmland",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.24991589344282,
+            "Min_Y":32.374880193529265,
+            "Max_X":116.31251633613097,
+            "Max_Y":32.4173310260531
+          }
+        },{
+          "name" : "farmland2",
+          "layer" : "test:farmland",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.24991589344282,
+            "Min_Y":32.374880193529265,
+            "Max_X":116.31251633613097,
+            "Max_Y":32.4173310260531
+          }
+        }
+        ]
+      },
+      "industrial" : {
+        "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+        "area" : 1200,
+        "data" : [{
+          "name" : "industrial_8701",
+          "layer" : "test:industrial",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.2500799789213,
+            "Min_Y":32.37507088067301,
+            "Max_X":116.31234456178295,
+            "Max_Y":32.41713585560963
+          }
+        },{
+          "name" : "industrial_8702",
+          "layer" : "test:industrial2",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.2500799789213,
+            "Min_Y":32.37507088067301,
+            "Max_X":116.31234456178295,
+            "Max_Y":32.41713585560963
+          }
+        }
+        ]
+      },
+      "residential" : {
+        "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+        "area" : 1200,
+        "data" : [{
+          "name" : "residential_8901",
+          "layer" : "test:residential",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.25007990418605,
+            "Min_Y":32.37508443221155,
+            "Max_X":116.31234706869745,
+            "Max_Y":32.41714490428572
+          }
+        },{
+          "name" : "resdential_8502",
+          "layer" : "test:resdential2",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.25007990418605,
+            "Min_Y":32.37508443221155,
+            "Max_X":116.31234706869745,
+            "Max_Y":32.41714490428572
+          }
+        }
+        ]
+      },
+      "water" : {
+        "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+        "area" : 1200,
+        "data" : [{
+          "name" : "water_8701",
+          "layer" : "test:sence_water",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":114.33614349365234,
+            "Min_Y":30.354390798922395,
+            "Max_X":114.66987840236106,
+            "Max_Y":30.657733917236328
+          }
+        },{
+          "name" : "water_8752",
+          "layer" : "test:water2",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":114.33614349365234,
+            "Min_Y":30.354390798922395,
+            "Max_X":114.66987840236106,
+            "Max_Y":30.657733917236328
+          }
+        }
+        ]
+      },
+      "forest" : {
+        "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+        "area" : 1200,
+        "data" : [{
+          "name" : "forest_8501",
+          "layer" : "test:forest",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.25753421858312,
+            "Min_Y":32.37514200460252,
+            "Max_X":116.2870971715548,
+            "Max_Y":32.4158592474293
+          }
+        },{
+          "name" : "forest_8502",
+          "layer" : "test:forest2",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.25753421858312,
+            "Min_Y":32.37514200460252,
+            "Max_X":116.2870971715548,
+            "Max_Y":32.4158592474293
+          }
+        }
+        ]
+      },
+      "mining" : {
+        "WMSURL" : "http://localhost:8080/geoserver/wms",
+        "area" : 1200,
+        "layer":"mining_area",
+        "crs": "EPSG:4326",
+        "data" : [{
+          "name" : "forest_8501",
+          "layer" : "mining_area",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.25753421858312,
+            "Min_Y":32.37514200460252,
+            "Max_X":116.2870971715548,
+            "Max_Y":32.4158592474293
+          }
+        },{
+          "name" : "forest_8502",
+          "layer" : "test:forest2",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":116.25753421858312,
+            "Min_Y":32.37514200460252,
+            "Max_X":116.2870971715548,
+            "Max_Y":32.4158592474293
+          }
+        }
+        ]
+      }
+    },
+    "ObjectIdentification_data" : {
+      "rectangleUrl" : "http://127.0.0.1:5000/webConfig/?&AreaName=Global",
+      "earthUrl" : "http://127.0.0.1:5000/webConfig/?configName=pdate&AreaName=Global",
+      "powerIdentificationUrl": "http://127.0.0.1:5000/getPowerIdentification/?AreaName=Global",
+      "rectIdentificationUrl" : "http://127.0.0.1:5000/getPowerIdentificationArea/?AreaName=Global"
+    },
+    "power_Station" : {
+      "longitude" : 120,
+      "lautitude" : 30,
+      "elevation" : 1500,
+      "rawdata_source" : "Baidu;Google",
+      "source_WMSURL" : "http://101.119.202//"
+    },
+    "other_json" : [
+      {
+        "name" : "need_1",
+        "WMSURL" : "..."
+      },
+      {
+        "name" : "need_2",
+        "WMSURL" : "..."
+      }
+    ]
+  }
+  },
+  "china" : {
+    "data_production" : {
+      "ID" : "001",
+      "PowerConsumption_data" : {
+        "rawdata_source" : "light_RS",
+        "power_Consumpation":{
+          "ID" : "5",
+          "layer" : "power:CHN_GER5",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "WMSURL" : "http://localhost:8080/geoserver/power/wms?"
+        },
+        "power_RGB":{
+          "ID" : "6",
+          "layer" : "power:powerRGB",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "WMSURL" : "http://localhost:8080/geoserver/power/wms?"
+        },
+        "power_Province":{
+          "ID" : "7",
+          "layer" : "test:powerRGBprov",
+          "crs" : "EPSG:4326",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms?",
+          "geoJsonURL":"http://localhost:8080/geoserver/power/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=power:point&maxFeatures=100000&outputFormat=application%2Fjson"
+        },
+        "powerAreaConsumpation_data":{
+          "ID" : "8",
+          "description" : "...",
+          "BBox":{
+            "Min_X":67.83027111776292,
+            "Min_Y":15.30299446594817,
+            "Max_X":136.52399067253856,
+            "Max_Y":54.64064351934049
+          },
+          "geoJsonURL" : "http://localhost:8080/geoserver/power/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=power:CHNGER_point&maxFeatures=100000&outputFormat=application%2Fjson"
+        }
+      },
+      "LandUse_data" : {
+        "ID" : "9",
+        "rawdata_source" : "RS",
+        "farmland" : {
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+          "area" : 1200,
+          "data" : [{
+            "name" : "farmland_8703",
+            "layer" : "test:farmland",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.24991589344282,
+              "Min_Y":32.374880193529265,
+              "Max_X":116.31251633613097,
+              "Max_Y":32.4173310260531
+            }
+          },{
+            "name" : "farmland2",
+            "layer" : "test:farmland",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.24991589344282,
+              "Min_Y":32.374880193529265,
+              "Max_X":116.31251633613097,
+              "Max_Y":32.4173310260531
+            }
+          }
+          ]
+        },
+        "industrial" : {
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+          "area" : 1200,
+          "data" : [{
+            "name" : "industrial_8701",
+            "layer" : "test:industrial",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.2500799789213,
+              "Min_Y":32.37507088067301,
+              "Max_X":116.31234456178295,
+              "Max_Y":32.41713585560963
+            }
+          },{
+            "name" : "industrial_8702",
+            "layer" : "test:industrial2",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.2500799789213,
+              "Min_Y":32.37507088067301,
+              "Max_X":116.31234456178295,
+              "Max_Y":32.41713585560963
+            }
+          }
+          ]
+        },
+        "residential" : {
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+          "area" : 1200,
+          "data" : [{
+            "name" : "residential_8901",
+            "layer" : "test:residential",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.25007990418605,
+              "Min_Y":32.37508443221155,
+              "Max_X":116.31234706869745,
+              "Max_Y":32.41714490428572
+            }
+          },{
+            "name" : "resdential_8502",
+            "layer" : "test:resdential2",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.25007990418605,
+              "Min_Y":32.37508443221155,
+              "Max_X":116.31234706869745,
+              "Max_Y":32.41714490428572
+            }
+          }
+          ]
+        },
+        "water" : {
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+          "area" : 1200,
+          "data" : [{
+            "name" : "water_8701",
+            "layer" : "test:sence_water",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":114.33614349365234,
+              "Min_Y":30.354390798922395,
+              "Max_X":114.66987840236106,
+              "Max_Y":30.657733917236328
+            }
+          },{
+            "name" : "water_8752",
+            "layer" : "test:water2",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":114.33614349365234,
+              "Min_Y":30.354390798922395,
+              "Max_X":114.66987840236106,
+              "Max_Y":30.657733917236328
+            }
+          }
+          ]
+        },
+        "forest" : {
+          "WMSURL" : "http://localhost:8080/geoserver/test/wms",
+          "area" : 1200,
+          "data" : [{
+            "name" : "forest_8501",
+            "layer" : "test:forest",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.25753421858312,
+              "Min_Y":32.37514200460252,
+              "Max_X":116.2870971715548,
+              "Max_Y":32.4158592474293
+            }
+          },{
+            "name" : "forest_8502",
+            "layer" : "test:forest2",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.25753421858312,
+              "Min_Y":32.37514200460252,
+              "Max_X":116.2870971715548,
+              "Max_Y":32.4158592474293
+            }
+          }
+          ]
+        },
+        "mining" : {
+          "WMSURL" : "http://localhost:8080/geoserver/wms",
+          "area" : 1200,
+          "layer":"mining_area",
+          "crs": "EPSG:4326",
+          "data" : [{
+            "name" : "forest_8501",
+            "layer" : "mining_area",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.25753421858312,
+              "Min_Y":32.37514200460252,
+              "Max_X":116.2870971715548,
+              "Max_Y":32.4158592474293
+            }
+          },{
+            "name" : "forest_8502",
+            "layer" : "test:forest2",
+            "crs" : "EPSG:4326",
+            "description" : "...",
+            "BBox":{
+              "Min_X":116.25753421858312,
+              "Min_Y":32.37514200460252,
+              "Max_X":116.2870971715548,
+              "Max_Y":32.4158592474293
+            }
+          }
+          ]
+        }
+      },
+      "ObjectIdentification_data" : {
+        "rectangleUrl" : "http://127.0.0.1:5000/webConfig/?&AreaName=ChinaSurrounding",
+        "earthUrl" : "http://127.0.0.1:5000/webConfig/?configName=pdate&AreaName=ChinaSurrounding",
+        "powerIdentificationUrl": "http://127.0.0.1:5000/getPowerIdentification/?AreaName=ChinaSurrounding",
+        "rectIdentificationUrl" : "http://127.0.0.1:5000/getPowerIdentificationArea/?AreaName=ChinaSurrounding"
+      },
+      "power_Station" : {
+        "longitude" : 120,
+        "lautitude" : 30,
+        "elevation" : 1500,
+        "rawdata_source" : "Baidu;Google",
+        "source_WMSURL" : "http://101.119.202//"
+      },
+      "other_json" : [
+        {
+          "name" : "need_1",
+          "WMSURL" : "..."
+        },
+        {
+          "name" : "need_2",
+          "WMSURL" : "..."
+        }
+      ]
+    }
+  }
+}
