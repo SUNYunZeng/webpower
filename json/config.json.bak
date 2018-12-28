@@ -309,7 +309,7 @@
     "ObjectIdentification_data" : {
       "rectangleUrl" : "http://127.0.0.1:5000/webConfig/?&AreaName=Global",
       "earthUrl" : "http://127.0.0.1:5000/webConfig/?configName=pdate&AreaName=Global",
-      "powerIdentificationUrl": "../json/pdate.json",
+      "powerIdentificationUrl": "http://127.0.0.1:5000/getPowerIdentification/?AreaName=Global",
       "rectIdentificationUrl" : "http://127.0.0.1:5000/getPowerIdentificationArea/?AreaName=Global"
     },
     "power_Station" : {
