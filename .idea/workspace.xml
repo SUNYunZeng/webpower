@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81418806-c027-444c-a09f-84509a901aeb" name="Default Changelist" comment="" />
+    <list default="true" id="81418806-c027-444c-a09f-84509a901aeb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/js/dataShow.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dataShow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/json/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/config.json" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -59,13 +62,41 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-1967061963">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="json" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JSON" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="20" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="20" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1615">
+            <state relative-caret-position="513">
               <caret line="85" column="30" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#3;n#ul#0;n#nav#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -95,19 +126,63 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/dataShow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="1450" column="42" selection-start-line="1450" selection-start-column="42" selection-end-line="1450" selection-end-column="42" />
+            <state relative-caret-position="208">
+              <caret line="609" column="34" lean-forward="true" selection-start-line="609" selection-start-column="34" selection-end-line="609" selection-end-column="34" />
               <folding>
+                <element signature="e#1276#2214#0" />
                 <element signature="e#27769#28603#0" />
                 <element signature="e#28706#29373#0" />
                 <element signature="e#29475#34102#0" />
                 <element signature="e#34180#38062#0" />
                 <element signature="e#38165#43965#0" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#2;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#3;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#3;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#2;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#2;n#li#0;n#!!top" expanded="true" />
                 <element signature="e#44044#48471#0" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
                 <element signature="e#48663#53283#0" />
+                <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#li#0;n#!!top" expanded="true" />
                 <element signature="e#53351#55009#0" />
                 <element signature="e#62488#67761#0" />
                 <element signature="e#67803#68112#0" />
@@ -122,11 +197,26 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/json/pdate.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="8" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="8" />
+              <folding>
+                <element signature="e#12#298217#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/json/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6764">
-              <caret line="588" column="3" selection-start-line="588" selection-start-column="3" selection-end-line="588" selection-end-column="3" />
+            <state relative-caret-position="266">
+              <caret line="570" column="24" lean-forward="true" selection-start-line="570" selection-start-column="24" selection-end-line="570" selection-end-column="24" />
               <folding>
+                <element signature="n#!!block;n#raw_data#0;n#!!block;n#global#0;n#!!top" />
+                <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#global#0;n#!!top" />
+                <element signature="n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#global#0;n#!!top" />
                 <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
                 <element signature="n#!!block;n#power_Consumpation#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
                 <element signature="n#!!block;n#power_RGB#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
@@ -138,7 +228,6 @@
                 <element signature="n#!!block;n#residential#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
                 <element signature="n#!!block;n#forest#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
                 <element signature="n#!!block;n#mining#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-                <element signature="n#!!block;n#power_Station#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -214,6 +303,9 @@
       <find>china</find>
     </findStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -223,8 +315,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/eleoc.js" />
         <option value="$PROJECT_DIR$/js/layercon.js" />
-        <option value="$PROJECT_DIR$/json/config.json" />
         <option value="$PROJECT_DIR$/js/dataShow.js" />
+        <option value="$PROJECT_DIR$/json/config.json" />
       </list>
     </option>
   </component>
@@ -235,10 +327,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="42" />
-    <option name="y" value="49" />
-    <option name="width" value="1040" />
-    <option name="height" value="725" />
+    <option name="x" value="501" />
+    <option name="y" value="136" />
+    <option name="width" value="1268" />
+    <option name="height" value="920" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -256,12 +348,7 @@
             <path>
               <item name="webpower" type="b2602c69:ProjectViewProjectNode" />
               <item name="webpower" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webpower" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webpower" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="json" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -333,22 +420,24 @@
       <workItem from="1542712993239" duration="6784000" />
       <workItem from="1542799398355" duration="599000" />
       <workItem from="1542861774897" duration="1260000" />
+      <workItem from="1545989306276" duration="647000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62781000" />
+    <option name="totallyTimeSpent" value="63428000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="49" width="1040" height="725" extended-state="0" />
+    <frame x="401" y="109" width="1014" height="736" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10479042" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21676892" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4993395" visible="true" weight="0.3618635" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4993395" weight="0.3618635" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -378,53 +467,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="85" column="30" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#3;n#ul#0;n#nav#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#3;n#ul#0;n#nav#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#div#2;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#3;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#div#3;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#2;n#tr#0;n#table#1;n#div#2;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#1;n#div#2;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#table#1;n#div#2;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8569">
           <caret line="451" column="3" selection-start-line="451" selection-start-column="3" selection-end-line="451" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6764">
-          <caret line="588" column="3" selection-start-line="588" selection-start-column="3" selection-end-line="588" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#power_Consumpation#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#power_RGB#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#power_Province#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#powerAreaConsumpation_data#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#farmland#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#industrial#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#residential#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#forest#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#mining#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-            <element signature="n#!!block;n#power_Station#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -473,11 +519,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="85" column="30" selection-start-line="85" selection-start-column="19" selection-end-line="85" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#li#3;n#ul#0;n#nav#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#1;n#ul#0;n#li#3;n#ul#0;n#nav#0;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#div#2;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#3;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#table#0;n#div#3;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#7;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#2;n#tr#0;n#table#1;n#div#2;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#2;n#table#1;n#div#2;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#2;n#table#1;n#div#2;n#div#8;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/pdate.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="8" />
+          <folding>
+            <element signature="e#12#298217#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/dataShow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="1450" column="42" selection-start-line="1450" selection-start-column="42" selection-end-line="1450" selection-end-column="42" />
+        <state relative-caret-position="208">
+          <caret line="609" column="34" lean-forward="true" selection-start-line="609" selection-start-column="34" selection-end-line="609" selection-end-column="34" />
           <folding>
+            <element signature="e#1276#2214#0" />
             <element signature="e#27769#28603#0" />
             <element signature="e#28706#29373#0" />
             <element signature="e#29475#34102#0" />
@@ -536,6 +615,29 @@
             <element signature="e#69066#69125#0" />
             <element signature="e#69171#69350#0" />
             <element signature="e#69383#69572#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="570" column="24" lean-forward="true" selection-start-line="570" selection-start-column="24" selection-end-line="570" selection-end-column="24" />
+          <folding>
+            <element signature="n#!!block;n#raw_data#0;n#!!block;n#global#0;n#!!top" />
+            <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#global#0;n#!!top" />
+            <element signature="n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#global#0;n#!!top" />
+            <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#power_Consumpation#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#power_RGB#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#power_Province#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#powerAreaConsumpation_data#0;n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#farmland#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#industrial#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#residential#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#forest#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
+            <element signature="n#!!block;n#mining#0;n#!!block;n#LandUse_data#0;n#!!block;n#data_production#0;n#!!block;n#china#0;n#!!top" />
           </folding>
         </state>
       </provider>

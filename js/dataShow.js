@@ -53,7 +53,8 @@ $(function () {
       rectIdentificationUrl = configJson.data_production.ObjectIdentification_data.rectIdentificationUrl;
         $.getJSON(urlParse, function (data) {
           //var points = eval("("+data+")");老版方法，不推荐
-          points = data.pdate.RECORDS;
+          console.log(data)
+          points = data.RECORDS;
           sortPowerStaion(points);
         });
     });
@@ -606,7 +607,7 @@ function initData() {
         if (points === null) {
           $.getJSON(urlParse, function (data) {
             //var points = eval("("+data+")");老版方法，不推荐
-            points = data.pdate.RECORDS;
+            points = data.RECORDS;
             sortPowerStaion(points);
             whatsEleFacLayer(points);
             transPS = points;
