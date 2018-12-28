@@ -174,8 +174,8 @@ function powerBuildiPoint(id,name,liId,chartId,deleteId) {
           points = null;
           $.getJSON(rectangleUrlParse+"&lng1="+west+"&lat1="+north+"&lng2="+east+"&lat2="+south+"", function (data) {
             //var points = eval("("+data+")");老版方法，不推荐
-            if (data.pdate.RECORDS.length>0){
-              points = data.pdate.RECORDS;
+            if (data.RECORDS.length>0){
+              points = data.RECORDS;
               sortPowerStaion(points);
               removeTransPS(transPS);
               whatsEleFacLayer(points);
@@ -198,7 +198,7 @@ function powerBuildiPoint(id,name,liId,chartId,deleteId) {
         $.getJSON(rectangleUrlParse+"&lng1="+lng1+"&lat1="+lat1+"&lng2="+lng2+"&lat2="+lat2+"", function (data) {
           //var points = eval("("+data+")");老版方法，不推荐
           if (data!==null){
-            points = data.pdate.RECORDS;
+            points = data.RECORDS;
             sortPowerStaion(points);
             removeTransPS(transPS);
             whatsEleFacLayer(points);
@@ -220,7 +220,7 @@ function powerBuildiPoint(id,name,liId,chartId,deleteId) {
         if (points === null) {
           $.getJSON(urlParse, function (data) {
             //var points = eval("("+data+")");老版方法，不推荐
-            points = data.pdate.RECORDS;
+            points = data.RECORDS;
             sortPowerStaion(points);
             removeTransPS(transPS);
             whatsEleFacLayer(points);

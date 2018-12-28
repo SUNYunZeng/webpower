@@ -65,6 +65,7 @@
     <session id="-1967061963">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -211,8 +212,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/json/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="570" column="24" lean-forward="true" selection-start-line="570" selection-start-column="24" selection-end-line="570" selection-end-column="24" />
+            <state relative-caret-position="209">
+              <caret line="567" column="54" lean-forward="true" selection-start-line="567" selection-start-column="54" selection-end-line="567" selection-end-column="54" />
               <folding>
                 <element signature="n#!!block;n#raw_data#0;n#!!block;n#global#0;n#!!top" />
                 <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#global#0;n#!!top" />
@@ -327,9 +328,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="501" />
-    <option name="y" value="136" />
-    <option name="width" value="1268" />
+    <option name="x" value="570" />
+    <option name="y" value="31" />
+    <option name="width" value="1269" />
     <option name="height" value="920" />
   </component>
   <component name="ProjectView">
@@ -420,12 +421,12 @@
       <workItem from="1542712993239" duration="6784000" />
       <workItem from="1542799398355" duration="599000" />
       <workItem from="1542861774897" duration="1260000" />
-      <workItem from="1545989306276" duration="647000" />
+      <workItem from="1545989306276" duration="1247000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63428000" />
+    <option name="totallyTimeSpent" value="64028000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="401" y="109" width="1014" height="736" extended-state="0" />
@@ -621,8 +622,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/json/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="570" column="24" lean-forward="true" selection-start-line="570" selection-start-column="24" selection-end-line="570" selection-end-column="24" />
+        <state relative-caret-position="209">
+          <caret line="567" column="54" lean-forward="true" selection-start-line="567" selection-start-column="54" selection-end-line="567" selection-end-column="54" />
           <folding>
             <element signature="n#!!block;n#raw_data#0;n#!!block;n#global#0;n#!!top" />
             <element signature="n#!!block;n#PowerConsumption_data#0;n#!!block;n#data_production#0;n#!!block;n#global#0;n#!!top" />
