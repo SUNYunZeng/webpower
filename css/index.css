@@ -8,11 +8,11 @@
 
 #topMenuBox{
     position: absolute;
-    width: 900px;
+    width: 1000px;
     height: 37px;
     background: rgba(60,60,60,0.8);
     top:0;
-    right: 400px;
+    right: 300px;
     z-index: 100;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
 }
