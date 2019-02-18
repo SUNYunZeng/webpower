@@ -152,6 +152,9 @@ $(function () {
        $('#controllBox').hide();
     });
 
+    $('#pictureBoxCloseBtn').click(function () {
+      $('#pictureBox').hide();
+    });
 
 
 });
