@@ -21,6 +21,10 @@ var tiandituTerBasicLayer,tiandituTerBasicAnno,globalLandform,
   esriWorldImagery,landuse,minerLayer,gobleNVDI,energyEatMap,
   nightRGBProvider, nightPowerProvider,waterProvider,sence_water;
 var totalPowerCom = 0;
+//记录查询到第几个图片
+var img_index = 0;
+var is_img_area = false;
+var dataset = [];
 $(function () {
   //示范区选择
   $('#global').click(function () {
@@ -28,6 +32,7 @@ $(function () {
   $('#exampleChoice').text('全球示范区');
     $('#global').text('全球示范区√');
     $('#china').text('中国及周边');
+    is_img_search_area(false);
     //获取配置文件里的所有的BBox
     $.getJSON("./json/config.json",function (data) {
       if(data){
@@ -53,7 +58,7 @@ $(function () {
       rectIdentificationUrl = configJson.data_production.ObjectIdentification_data.rectIdentificationUrl;
         $.getJSON(urlParse, function (data) {
           //var points = eval("("+data+")");老版方法，不推荐
-          console.log(data)
+          console.log(data);
           points = data.RECORDS;
           sortPowerStaion(points);
         });
@@ -65,6 +70,7 @@ $(function () {
     $('#global').text('全球示范区');
     $('#china').text('中国及周边√');
     cleanAll();
+    is_img_search_area(true);
     $.getJSON("./json/config.json",function (data) {
       if(data){
         configJson = data.china;
@@ -110,6 +116,11 @@ $(function () {
     $(document).find("li[name='secondCondition']").remove();
     $(document).find("li[class='firstCondition']").css('background','transparent');
     $(document).find("div[class='box2']").find("img").attr("src","img/eyeClose.png");
+    var attrValueDiv = document.getElementById("picture_ul");
+    attrValueDiv.innerHTML='';
+    $('#pictureBox').hide();
+    dataset = [];
+    img_index=0;
   }
 
   //图层清空逻辑
@@ -154,6 +165,15 @@ $(function () {
       });
     }
   });
+  function is_img_search_area(flag) {
+    if (flag) {
+      is_img_area = true;
+    } else {
+      is_img_area = false;
+      dataset = [];
+      img_index=0;
+    }
+  }
 
   if(mapconfig===null){
     //底图添加操作
@@ -1710,6 +1730,66 @@ function drawPowerRectangle(data,type) {
   );*/
 }
 
+
+$("#pictureChildBox").scroll(function () {
+  var scrollLeft = $(this).scrollLeft();
+  var scrollWidth = $(this)[0].scrollWidth;
+  var windowidth = $(this).width();
+  if(scrollLeft + windowidth >= scrollWidth){
+    requset5img();
+  }
+});
+function add_img_btn(id,url,minlng,minlat,maxlng,maxlat,name) {
+  var attrValueDiv = document.getElementById("picture_ul");
+  var tempHtml = '';
+  var btn_id = name+id;
+  var li= document.createElement("li");
+  tempHtml +=
+    "<input  name='button'  type='image' class='eleimg' src='"+url+"' id='"+btn_id+"'" +
+    " title='"+name+"'>";
+  li.innerHTML = tempHtml;
+  attrValueDiv.appendChild(li);
+
+  $("#"+btn_id).click(function () {
+    setRectangleView(minlng,minlat,maxlng,maxlat);
+  });
+}
+
+
+function requset5img() {
+  if(img_index+5 <= dataset.length){
+    end_index = img_index+5;
+  }else {
+    end_index = dataset.length;
+  }
+  for(var i=img_index;i<end_index;i++){
+    add_img_btn(i,dataset[i].imgURL,dataset[i].lng1,dataset[i].lat2,  dataset[i].lng2,dataset[i].lat1,dataset[i].name);
+  }
+  img_index += 5;
+}
+
+$("#queryBtn").click(function () {
+  $.getJSON("./json/mytest.json",function (data) {
+    set_img_dataset(is_img_area,'邓紫棋',data.data);
+  });
+});
+
+$("#imgQuery").click(function () {
+  if(is_img_area&&dataset.length>0){
+    $('#pictureBox').show();
+    requset5img();
+  }
+});
+
+function set_img_dataset(flag,text,data) {
+  if (flag) {
+    var set = data;
+    for(var i=0;i<set.length;i++){
+      set[i]['name']=text;
+    }
+    dataset = dataset.concat(set);
+  }
+}
 
 //眼睛开关控制函数
 function eyeInit(inputName) {

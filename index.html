@@ -46,6 +46,9 @@
     <div id="queryConfigBox" >
       <input id="queryConfig" title="搜索范围设置" class="hoverInput" type="image" src="img/searchConfig.png" >
     </div>
+    <div id="imgQueryBox" >
+      <input id="imgQuery" title="图像检索" class="hoverInput" type="image" src="img/imgSearch.png" >
+    </div>
     <datalist id="url_list">
       <option  value="输电塔" ></option>
       <option  value="变电站" ></option>
@@ -1174,6 +1177,18 @@
 
   <div id="areaElePieChart" style="position: absolute;z-index: 91;width: 830px;
         height:300px;bottom:30px;left: 355px;display: none;">
+  </div>
+
+  <!-- 图片检索 -->
+  <div id="pictureBox">
+    <div class="leftTitle" style="left: 200px">图像检索</div>
+    <div style="position: absolute;width: 25px;height: 25px;right: 4px;top: 4px;" title="关闭">
+      <input id="pictureBoxCloseBtn" name="button" type="image" src="img/layer.png" class="eleimg">
+    </div>
+    <div id="pictureChildBox">
+      <ul id="picture_ul" >
+      </ul>
+    </div>
   </div>
 <!--
   <div id="areaElePieChart" style="position: absolute;z-index: 81;width: 550px;

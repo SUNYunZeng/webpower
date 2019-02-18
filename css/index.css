@@ -41,6 +41,24 @@
     width:30px;
     height:30px
 }
+#imgQueryBox{
+  z-index:inherit;
+  position:absolute;
+  top:0;
+  left: 280px;
+  width:36px;
+  height:100%;
+  border-right:1px solid grey;
+}
+#imgQuery{
+  z-index:inherit;
+  background-size:28px 28px;
+  position:absolute;
+  top:2.5px;
+  left:2px;
+  width:30px;
+  height:30px
+}
 #queryConfigBox{
   z-index:inherit;
   position:absolute;
@@ -58,7 +76,6 @@
   left: 2px;
   width:30px;
   height:30px;
-
 }
 #queryArea{
   background: rgba(80,80,80,0.8);
@@ -608,6 +625,49 @@
 .sel:hover{
     background:  #595959;
 }
+#pictureBox{
+  position: absolute;
+  z-index: 91;
+  width: 670px;
+  height:187px;
+  bottom:31px;
+  left: 30%;
+  border-radius: 5px;
+  background: rgba(60,60,60,0.8);
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
+  display: none;
+}
+#pictureChildBox  li{
+  position: relative;
+  list-style: none;
+  display: inline-block;
+  margin-left: 2px;
+  width: 150px;
+  height: 100%;
+  left: -40px;
+  box-shadow: 0 0 10px grey;
+  background: transparent;
+}
+#pictureChildBox{
+  position: absolute;
+  width: 658px;
+  height: 80%;
+  border-radius: 4px;
+  border: #cccccc solid 2px;
+  top:16%;
+  left: 4px;
+  box-shadow: 0 0 10px grey;
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space:nowrap;
+}
+#picture_ul{
+  position: absolute;
+  height: 100%;
+  max-width: 618px;
+  top: -15px;
+}
+
 #cengControll{
     position: absolute;
     z-index: 40;
