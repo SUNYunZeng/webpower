@@ -2,6 +2,7 @@
  * 图层变量
  */
 //计算底图个数
+var is_init = false;
 var lowNum = 0;
 var configJson = null;
 var urlParse = "";
@@ -49,8 +50,11 @@ $(function () {
         claMaxMinBBox(miningFieldBBox,data.huainan.data_production.mining_Field.data);
         claMaxMinBBox(waterBodyBBox,data.huainan.data_production.water_Body.data);*/
         //初始化图层
-        initBaseLayer();
-        initData();
+        if(!is_init){
+          initBaseLayer();
+          initData();
+          is_init = true;
+        }
       }
       urlParse = configJson.data_production.ObjectIdentification_data.earthUrl;
       rectangleUrlParse = configJson.data_production.ObjectIdentification_data.rectangleUrl;
@@ -75,8 +79,11 @@ $(function () {
       if(data){
         configJson = data.china;
         //初始化图层
-        initBaseLayer();
-        initData();
+        if(!is_init){
+          initBaseLayer();
+          initData();
+          is_init = true;
+        }
       }
       urlParse = configJson.data_production.ObjectIdentification_data.earthUrl;
       rectangleUrlParse = configJson.data_production.ObjectIdentification_data.rectangleUrl;
@@ -138,33 +145,33 @@ $(function () {
   });
 
   //初始化
-  $('#tuBtn,#elefac,#eleload,#elegeo').click(function () {
-    if(configJson==null){
-      $.getJSON("./json/config.json",function (data) {
-        configJson = data.global;
-        urlParse = configJson.data_production.ObjectIdentification_data.earthUrl;
-        rectangleUrlParse = configJson.data_production.ObjectIdentification_data.rectangleUrl;
-        powerIdentificationUrl = configJson.data_production.ObjectIdentification_data.powerIdentificationUrl;
-        rectIdentificationUrl = configJson.data_production.ObjectIdentification_data.rectIdentificationUrl;
-        //setView(configJson.longitude, configJson.lautitude, configJson.elevation);
-        //如果发电站数据为空，则请求数据,并对数据信息进行分类，存储在相应的变量中
-        if (points === null) {
-          $.getJSON(urlParse, function (data) {
-            //var points = eval("("+data+")");老版方法，不推荐
-            points = data.RECORDS;
-            sortPowerStaion(points);
-          });
-        }
-        /*$.getJSON(config[i].url,function (data) {
-          points = data;
-        });*/
-        //初始化图层
-        initBaseLayer();
-        initData();
-
-      });
-    }
-  });
+  // $('#tuBtn,#elefac,#eleload,#elegeo').click(function () {
+  //   if(configJson==null){
+  //     $.getJSON("./json/config.json",function (data) {
+  //       configJson = data.global;
+  //       urlParse = configJson.data_production.ObjectIdentification_data.earthUrl;
+  //       rectangleUrlParse = configJson.data_production.ObjectIdentification_data.rectangleUrl;
+  //       powerIdentificationUrl = configJson.data_production.ObjectIdentification_data.powerIdentificationUrl;
+  //       rectIdentificationUrl = configJson.data_production.ObjectIdentification_data.rectIdentificationUrl;
+  //       //setView(configJson.longitude, configJson.lautitude, configJson.elevation);
+  //       //如果发电站数据为空，则请求数据,并对数据信息进行分类，存储在相应的变量中
+  //       if (points === null) {
+  //         $.getJSON(urlParse, function (data) {
+  //           //var points = eval("("+data+")");老版方法，不推荐
+  //           points = data.RECORDS;
+  //           sortPowerStaion(points);
+  //         });
+  //       }
+  //       /*$.getJSON(config[i].url,function (data) {
+  //         points = data;
+  //       });*/
+  //       //初始化图层
+  //       initBaseLayer();
+  //       initData();
+  //
+  //     });
+  //   }
+  // });
   function is_img_search_area(flag) {
     if (flag) {
       is_img_area = true;
@@ -255,13 +262,13 @@ function initData() {
 
 //天地图地形数据
   tiandituTerBasicLayer = new Cesium.WebMapTileServiceImageryProvider({
-    url: "http://t0.tianditu.com/ter_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=ter&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
+    url: "http://t0.tianditu.com/ter_w/wmts?tk=a2b59c813943cadad8878744565affbd&service=wmts&request=GetTile&version=1.0.0&LAYER=ter&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
     show: true
   });
 
 //天地图地形注记
   tiandituTerBasicAnno = new Cesium.WebMapTileServiceImageryProvider({
-    url: "http://t0.tianditu.com/cta_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cta&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
+    url: "http://t0.tianditu.com/cta_w/wmts?tk=a2b59c813943cadad8878744565affbd&service=wmts&request=GetTile&version=1.0.0&LAYER=cta&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
     show: true
   });
 
