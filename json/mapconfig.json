@@ -129,7 +129,7 @@
       "layername" : "tdtVecBasicLayer",
       "layProvider" : "tdtVecBasicLayerProvider",
       "map_service" : "WMTS",
-      "url":"http://t0.tianditu.com/vec_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
+      "url":"http://t0.tianditu.com/vec_w/wmts?tk=a2b59c813943cadad8878744565affbd&service=wmts&request=GetTile&version=1.0.0&LAYER=vec&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
       "layerProvider_layer" :"tdtVecBasicLayer",
       "location":"bottom"
     },
@@ -144,7 +144,7 @@
       "layername" : "ChinaProvinceLayerAnno",
       "layProvider" : "ChinaProvinceLayerProvider",
       "map_service" : "WMS",
-      "url": "http://gisserver.tianditu.com/TDTService/region/wms?SERVICE=WMS&REQUEST=GetMap&VERSION=1.0.0&CRS=EPSG:4326&LAYERS=030100&STYLES=&FORMAT=image/png&transparent=true",      "layerProvider_layer" : "cva",
+      "url": "http://gisserver.tianditu.com/TDTService/region/wms?tk=a2b59c813943cadad8878744565affbd&SERVICE=WMS&REQUEST=GetMap&VERSION=1.0.0&CRS=EPSG:4326&LAYERS=030100&STYLES=&FORMAT=image/png&transparent=true",      "layerProvider_layer" : "cva",
       "parameters" : {
         "format": "image/png",
         "transparent": true
@@ -177,7 +177,7 @@
       "layername" : "tdtVecBasicAnno",
       "layProvider" : "tdtVecBasicAnnoProvider",
       "map_service" : "WMTS",
-      "url": "http://t0.tianditu.com/cva_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cva&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg",
+      "url": "http://t0.tianditu.com/cva_w/wmts?tk=a2b59c813943cadad8878744565affbd&service=wmts&request=GetTile&version=1.0.0&LAYER=cva&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg",
       "layerProvider_layer" : "cva",
       "location":"middle"
     },
@@ -192,7 +192,7 @@
       "layername" : "tdtBasicAnno",
       "layProvider" : "tdtBasicAnnoProvider",
       "map_service" : "WMTS",
-      "url": "http://t0.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg",
+      "url": "http://t0.tianditu.com/cia_w/wmts?tk=a2b59c813943cadad8878744565affbd&service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg",
       "layerProvider_layer" : "cia",
       "location":"middle"
     }
@@ -204,7 +204,7 @@
       "Id" : 0,
       "name":"天地图影像服务",
       "map_service" : "WMTS",
-      "url" : "http://t0.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
+      "url" : "http://t0.tianditu.com/img_w/wmts?tk=a2b59c813943cadad8878744565affbd&service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles",
       "layer" : "tdtBasicLayer",
       "style": "default",
       "format": "image/jpeg",
