@@ -1,2 +1,2 @@
 # webpower edit by SYZ
-view in https://sunyunzeng.github.io/webpower/
+view in https://webpower.sunyunzeng.com
