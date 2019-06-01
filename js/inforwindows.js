@@ -5,7 +5,7 @@ $(function () {
   var handler3D = new Cesium.ScreenSpaceEventHandler(canvas);
   handler3D.setInputAction(function (movement) {
     var pick = scene.pick(movement.position);
-    if (pick && pick.id) {
+    if (pick && pick.id&&pick.id.name!=='label') {
       showInforWindows(pick.id);
     }
   }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
@@ -14,7 +14,7 @@ $(function () {
   handler3D.setInputAction(function (movement) {
     var pick = scene.pick(movement.endPosition);
     var pickId = null;
-    if (pick && Cesium.defined(pick) ) {
+    if (pick && Cesium.defined(pick)&&pick.id.name!=='label'&&pick.id.name!=='polyline'&&pick.id.name!=='shapePoint'&&pick.id.name!=='polygon') {
       //如果拾取的是实体
       if(typeof pick.id === 'object') {
         if (pick === null) {
@@ -118,7 +118,7 @@ $(function () {
       '</div>' +
       '</div>';
     $("#cesiumContainer").append(window[newDiv]);
-    var info
+    var info;
     if(s.name ==='电力设施属性'){
       info =
         '<h4 style="color:#ffffff;" align=center>' + s.name + '</h4>' +

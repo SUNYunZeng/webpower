@@ -24,49 +24,53 @@ var tiandituTerBasicLayer,tiandituTerBasicAnno,globalLandform,
 var totalPowerCom = 0;
 //记录查询到第几个图片
 var img_index = 0;
-var is_img_area = false;
+var is_img_area = true;
 var dataset = [];
 $(function () {
   //示范区选择
+
+  // 默认全球示范区
+  $.getJSON("./json/config.json",function (data) {
+    if(data){
+      configJson = data.global;
+      /*
+      claMaxMinBBox(senceRowBBox,data.huainan.raw_data.LandUse_data.remote_sensing_images);
+      claMaxMinBBox(ObjectIdentificationRowBBox,data.huainan.raw_data.ObjectIdentification_data.data);
+      claMaxMinBBox(PowerConsumptionBBox,data.huainan.data_production.PowerConsumption_data.power_Consumpation);
+      claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.farmland.data);
+      claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.industrial.data);
+      claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.residential.data);
+      claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.water.data);
+      claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.forest.data);
+      claMaxMinBBox(miningFieldBBox,data.huainan.data_production.mining_Field.data);
+      claMaxMinBBox(waterBodyBBox,data.huainan.data_production.water_Body.data);*/
+      //初始化图层
+      if(!is_init){
+        initBaseLayer();
+        initData();
+        is_init = true;
+      }
+    }
+    urlParse = configJson.data_production.ObjectIdentification_data.earthUrl;
+    rectangleUrlParse = configJson.data_production.ObjectIdentification_data.rectangleUrl;
+    powerIdentificationUrl = configJson.data_production.ObjectIdentification_data.powerIdentificationUrl;
+    rectIdentificationUrl = configJson.data_production.ObjectIdentification_data.rectIdentificationUrl;
+    $.getJSON(urlParse, function (data) {
+      //var points = eval("("+data+")");老版方法，不推荐
+      console.log(data);
+      points = data.RECORDS;
+      sortPowerStaion(points);
+    });
+  });
+
   $('#global').click(function () {
     cleanAll();
   $('#exampleChoice').text('全球示范区');
     $('#global').text('全球示范区√');
     $('#china').text('中国及周边');
-    is_img_search_area(false);
+    is_img_search_area(true);
     //获取配置文件里的所有的BBox
-    $.getJSON("./json/config.json",function (data) {
-      if(data){
-        configJson = data.global;
-        /*
-        claMaxMinBBox(senceRowBBox,data.huainan.raw_data.LandUse_data.remote_sensing_images);
-        claMaxMinBBox(ObjectIdentificationRowBBox,data.huainan.raw_data.ObjectIdentification_data.data);
-        claMaxMinBBox(PowerConsumptionBBox,data.huainan.data_production.PowerConsumption_data.power_Consumpation);
-        claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.farmland.data);
-        claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.industrial.data);
-        claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.residential.data);
-        claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.water.data);
-        claMaxMinBBox(senceBBox,data.huainan.data_production.LandUse_data.forest.data);
-        claMaxMinBBox(miningFieldBBox,data.huainan.data_production.mining_Field.data);
-        claMaxMinBBox(waterBodyBBox,data.huainan.data_production.water_Body.data);*/
-        //初始化图层
-        if(!is_init){
-          initBaseLayer();
-          initData();
-          is_init = true;
-        }
-      }
-      urlParse = configJson.data_production.ObjectIdentification_data.earthUrl;
-      rectangleUrlParse = configJson.data_production.ObjectIdentification_data.rectangleUrl;
-      powerIdentificationUrl = configJson.data_production.ObjectIdentification_data.powerIdentificationUrl;
-      rectIdentificationUrl = configJson.data_production.ObjectIdentification_data.rectIdentificationUrl;
-        $.getJSON(urlParse, function (data) {
-          //var points = eval("("+data+")");老版方法，不推荐
-          console.log(data);
-          points = data.RECORDS;
-          sortPowerStaion(points);
-        });
-    });
+
   });
 
   $('#china').click(function () {
@@ -101,6 +105,7 @@ $(function () {
     viewer.entities.removeAll();viewer.dataSources.removeAll();
     viewer.scene.primitives.remove(tower);viewer.scene.primitives.remove(windpower);viewer.scene.primitives.remove(hydropower);
     viewer.scene.primitives.remove(transformer);viewer.scene.primitives.remove(thermalpower);viewer.scene.primitives.remove(solarpower);
+    featureCollection.splice(0,featureCollection.length);
     //layers.removeAll();
     // tiandituBasicLayer = layers.addImageryProvider(tiandituBasic);
     for(var i = layers.length;i > 1 ;i--){
@@ -833,11 +838,12 @@ function addVecJson(id,name,liId,chartId,deleteId) {
       //如果选择是全国电力消费
       if(id ==="energyEatMap"){
         if(showGeoJson('./json/province.json',4)){
-          setTimeout(function () {
+          // ***********************************************************************
+          /*setTimeout(function () {
             if (provincedata === null) {
               try{
                 //获取各区域的电力消耗信息
-                $.getJSON(configJson.data_production.PowerConsumption_data.power_Province.geoJsonURL, function (data) {
+                $.getJSON('##########################', function (data) {
                   provincedata = data;
                   areaEleCount();
                   $('#areaElePieChart').slideDown();
@@ -846,7 +852,8 @@ function addVecJson(id,name,liId,chartId,deleteId) {
                 alert("获取数据失败，错误信息为："+err);
               }
             }
-          },2300);
+          },2300);*/
+          //*************************************************************************
           if(PowerConsumptionBBox.minlng!==0){
             setRectangleView(PowerConsumptionBBox.minlng,PowerConsumptionBBox.minlat,PowerConsumptionBBox.maxlng,PowerConsumptionBBox.maxlat);
           }
@@ -1375,7 +1382,7 @@ function searhPoints() {
   if(splitQuery.length===1) {
     //如果长度为1且有数字
     if (reg.test(splitQuery[0])) {
-      for (i; i < showPoints.length; i++) {
+      /*for (i; i < showPoints.length; i++) {
         if (showPoints[i].id === query_param) {
           var s = viewer.entities.getById(showPoints[i].id);
           flyTo(showPoints[i].longitude, showPoints[i].latitude);
@@ -1394,9 +1401,8 @@ function searhPoints() {
         setTimeout(function () {
           showInforWindows(s)
         }, 1000)
-      }
-
-      if (query_param === 'GouZi') {
+      }*/
+      if (query_param === 'GouZi' || query_param === 'home') {
         flyTo(118.55786641411927, 36.67847589392107, 474.718);
       }
       if (query_param === 'BaoZi') {
@@ -1413,44 +1419,13 @@ function searhPoints() {
       }else if ($('#rectSelfArea').prop('checked')){
         searchStation(splitQuery[0],lng1,lat1,lng2,lat2);
       }else {
-        searchStation(splitQuery[0],null,null,null,null);
-        /*
-        if(powerIndentification===null){
-          $.getJSON('./json/powerSample.json',function (data) {
-            powerIndentification = data;
-          });
+        // searchStation(splitQuery[0],null,null,null,null);
+        if (query_param === '家' || query_param ==='孙云增') {
+          flyTo(118.55786641411927, 36.67847589392107, 474.718);
         }
-        if (powerIndentification !== null) {
-          if (splitQuery[0] === '输电塔') {
-            initBill('tower');
-            scene.primitives.remove(tower);
-            drawPowerRectangle(powerIndentification.tower, 'tower','towerBill');
-          } else if (splitQuery[0] === '水力发电站') {
-            initBill('hydropower');
-            scene.primitives.remove(hydropower);
-            drawPowerRectangle(powerIndentification.hydropower, 'hydropower');
-          }
-          else if (splitQuery[0] === '火力发电站') {
-            initBill('thermalpower');
-            scene.primitives.remove(thermalpower);
-            drawPowerRectangle(powerIndentification.thermalpower, 'thermalpower');
-
-          } else if (splitQuery[0] === '光伏发电站') {
-            initBill('solarpower');
-            scene.primitives.remove(solarpower);
-            drawPowerRectangle(powerIndentification.solarpower, 'solarpower');
-
-          } else if (splitQuery[0] === '变电站') {
-            initBill('transformer');
-            scene.primitives.remove(transformer);
-            drawPowerRectangle(powerIndentification.transformer, 'transformer');
-
-          } else if (splitQuery[0] === '风力发电站') {
-            initBill('windpower');
-            scene.primitives.remove(windpower);
-            drawPowerRectangle(powerIndentification.windpower, 'windpower');
-          }
-        }*/
+        if (query_param === '薛洁') {
+          flyTo(109.75006091239443, 38.27780813553693, 1464.3848);
+        }
       }
 
     }
@@ -1775,18 +1750,14 @@ function requset5img() {
   img_index += 5;
 }
 
-$("#queryBtn").click(function () {
+$("#imgQuery").click(function () {
   $.getJSON("./json/mytest.json",function (data) {
     set_img_dataset(is_img_area,'邓紫棋',data.data);
+    $('#pictureBox').show();
+    requset5img();
   });
 });
 
-$("#imgQuery").click(function () {
-  if(is_img_area&&dataset.length>0){
-    $('#pictureBox').show();
-    requset5img();
-  }
-});
 
 function set_img_dataset(flag,text,data) {
   if (flag) {
