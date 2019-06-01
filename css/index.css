@@ -19,13 +19,13 @@
 #queryBox{
     position:relative;
     left: 20px;
-    width: 220px;
+    width: 256px;
     height: 30px;
     background-color: #A5A5A5;
     top:2.5px;
 }
 #queryTxt{
-    width: 190px;
+    width: 226px;
     height: 28px ;
     outline:none;border:0;
     font-size: 15px;
