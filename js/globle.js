@@ -80,6 +80,7 @@ var clock ;
 var camera ;
 var layers ;
 var lables;
+var loactionEntity=null;
 //地球的基本显示
 $(function () {
 

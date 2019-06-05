@@ -5,14 +5,44 @@
     margin: 0;
 }
 
+#search_results_div{
+  left: 270px;
+  position: absolute;
+  top: 30px;
+  width: 252px;
+  z-index: 10000;
+  padding: 2px;
+  border-top:1px solid #000;
+  display: none;
+  color: black;
+  background-color: #A5A5A5;
+}
 
+#map_result_item{
+  left: 200px;
+  position: absolute;
+  top: 50px;
+  width: 256px;
+  height: 400px;
+  color: black;
+  background-color: #A5A5A5;
+}
+
+#map_result_item_span{
+  position: absolute;
+  top: 4px;
+  color: black;
+  width: 256px;
+  height: 20px;
+  background-color: #A5A5A5;
+}
 #topMenuBox{
     position: absolute;
     width: 1000px;
     height: 37px;
     background: rgba(60,60,60,0.8);
     top:0;
-    right: 300px;
+    left: 250px;
     z-index: 100;
     box-shadow: 3px 3px 3px rgba(0,0,0,0.9);
 }

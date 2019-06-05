@@ -40,7 +40,7 @@
 <div id="windows">
   <div id="topMenuBox" >
     <div id="queryBox">
-      <input id="queryTxt" type="text" onfocus="this.value=''"  list="url_list"  placeholder="搜索电力设施" data-options="required:true" >
+      <input id="queryTxt" type="text"  onkeyup="autoInput(this)"  onfocus="this.value='';autoInput(this)"  list="url_list"  placeholder="地点检索" data-options="required:true" >
       <input id="queryBtn" type="image" src="img/search.png" >
     </div>
     <!--<div id="queryConfigBox" >
@@ -115,6 +115,8 @@
       </nav>
     </div>
   </div>
+
+  <div id="search_results_div"></div>
 
   <!--<div id="queryArea">
     <div id="containQueryBox" >
@@ -995,7 +997,6 @@
     </table>
 </div>
 <!-- Add your site or application content here -->
-
 </body>
 <script src="js/Cesium/Cesium.js"></script>
 <script src="js/globle.js"></script>
@@ -1008,4 +1009,88 @@
 <script src="js/charts.js"></script>
 <script src="js/layercon.js"></script>
 <script src="js/markup.js"></script>
+<script src="https://webapi.amap.com/maps?v=1.4.10&key=aa77c6f1ab4860dfadbc46193918a2b5&plugin=AMap.PlaceSearch"></script>
+<script >
+  function autoInput(t){
+    if(!t){
+      return;
+    }
+    var keywords = t.value;
+    if(t.value==""){
+      document.getElementById("search_results_div").innerHTML="";
+      document.getElementById("search_results_div").style.display="none";
+      return;
+    }
+    AMap.plugin('AMap.PlaceSearch', function(){
+      var autoOptions = {city: '武汉'};
+      console.log(keywords);
+      var placeSearch = new AMap.PlaceSearch();
+      placeSearch.search(keywords, function(status, result) {
+        console.log("status:"+status);
+        if(status=="complete"){    // no_data
+          if(result.info=="OK"){
+            if(result.poiList&&result.poiList.count>0){
+              var poiList=result.poiList.pois;
+              console.log("result.poiList.pois: ");
+              console.log(poiList);
+              let poiListCount=result.poiList.count;
+              var htmlTmp="";
+              for(var i=0;i<poiList.length;i++){
+                // 查询出的是分页结果
+                var htmlTmp1 ="<div class='map_result_item' data-name="+ poiList[i].name+" data-address="+ poiList[i].address+" data-longitude="+poiList[i].location.lng+" data-latitude="+poiList[i].location.lat +" onclick='setmapToBylngAndLat(this)'>" +poiList[i].name+
+                  "<span class='map_result_item_span'> "+poiList[i].address+"</span>\n" +
+                  "</div>";
+                htmlTmp=htmlTmp+htmlTmp1;
+                // 查询结果对象存储，用于点击的3D定位
+
+              }
+              document.getElementById("search_results_div").innerHTML=htmlTmp;
+            }else {
+              document.getElementById("search_results_div").innerHTML="无搜索结果";
+            }
+          }else {
+            document.getElementById("search_results_div").innerHTML="无搜索结果";
+          }
+        }else{
+          document.getElementById("search_results_div").innerHTML="无搜索结果";
+        }
+        document.getElementById("search_results_div").style.display="block";
+      })
+    })
+  }
+  //点击事件 选中一个地点，3D跳转到
+  function setmapToBylngAndLat(t) {
+    var longitude =t.getAttribute("data-longitude");
+    var latitude =t.getAttribute("data-latitude");
+    var name = t.getAttribute("data-name")+": "+t.getAttribute("data-address");
+    if(loactionEntity!=null){
+      viewer.entities.remove(loactionEntity);
+      locationEntity = null;
+    }
+         //viewer 3D cesium实体
+    loactionEntity = new Cesium.Entity({
+      id : 'loactionEntity',
+      name: name,
+      position : Cesium.Cartesian3.fromDegrees(longitude, latitude),
+      point : {
+        pixelSize : 10,
+        color : Cesium.Color.YELLOW,
+        outlineColor : Cesium.Color.WHITE.withAlpha(1),
+        outlineWidth : 1
+      }
+    });
+    viewer.entities.add(loactionEntity);
+    viewer.flyTo(loactionEntity, {
+      offset : {
+        heading : Cesium.Math.toRadians(0.0),
+        pitch : Cesium.Math.toRadians(-90),
+        range : 5000
+      }
+    });
+
+    document.getElementById("search_results_div").style.display="none";
+  }
+
+</script>
+
 </html>
