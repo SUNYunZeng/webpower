@@ -839,11 +839,11 @@ function addVecJson(id,name,liId,chartId,deleteId) {
       if(id ==="energyEatMap"){
         if(showGeoJson('./json/province.json',4)){
           // ***********************************************************************
-          /*setTimeout(function () {
+          setTimeout(function () {
             if (provincedata === null) {
               try{
                 //获取各区域的电力消耗信息
-                $.getJSON('##########################', function (data) {
+                $.getJSON('./json/province_data.json', function (data) {
                   provincedata = data;
                   areaEleCount();
                   $('#areaElePieChart').slideDown();
@@ -852,7 +852,7 @@ function addVecJson(id,name,liId,chartId,deleteId) {
                 alert("获取数据失败，错误信息为："+err);
               }
             }
-          },2300);*/
+          },2300);
           //*************************************************************************
           if(PowerConsumptionBBox.minlng!==0){
             setRectangleView(PowerConsumptionBBox.minlng,PowerConsumptionBBox.minlat,PowerConsumptionBBox.maxlng,PowerConsumptionBBox.maxlat);
