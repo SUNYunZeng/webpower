@@ -1022,8 +1022,6 @@
       return;
     }
     AMap.plugin('AMap.PlaceSearch', function(){
-      var autoOptions = {city: '武汉'};
-      console.log(keywords);
       var placeSearch = new AMap.PlaceSearch();
       placeSearch.search(keywords, function(status, result) {
         console.log("status:"+status);
@@ -1042,7 +1040,6 @@
                   "</div>";
                 htmlTmp=htmlTmp+htmlTmp1;
                 // 查询结果对象存储，用于点击的3D定位
-
               }
               document.getElementById("search_results_div").innerHTML=htmlTmp;
             }else {
@@ -1063,6 +1060,7 @@
     var longitude =t.getAttribute("data-longitude");
     var latitude =t.getAttribute("data-latitude");
     var name = t.getAttribute("data-name")+": "+t.getAttribute("data-address");
+    $('#queryTxt').val(name);
     if(loactionEntity!=null){
       viewer.entities.remove(loactionEntity);
       locationEntity = null;
